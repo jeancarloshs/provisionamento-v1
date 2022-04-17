@@ -54,9 +54,13 @@ h2 {
   color: white;
 }
 
-.formulario {
-  /* background-color: red; */
+.header_menu ul li a:hover {
+  color: #0B5384;
 }
+
+/* .formulario {
+  background-color: red;
+} */
 
 .formFormulario label,
 .formFormulario button {
