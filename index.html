@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provisionar</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="grid-4">
+        <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
+      </a>
+      <nav class="grid-12 header_menu">
+        <ul>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Menu</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header> <!-- header -->
+
+<section class="container">
+  <div class="grid-6 formulario">
+    <form id="formInformacoes" method="POST" class="formFormulario">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
+      <label for="endereco">Endereço</label>
+      <input type="text" name="endereco" id="endereco" required>
+      <label for="patrimonio">Patrimonio</label>
+      <input type="text" name="patrimonio" id="patrimonio" required>
+      <label for="serialNumber">S/N</label>
+      <input type="text" name="serialNumber" id="serialNumber" required>
+      <label for="posicionamento">Posicionamento</label>
+      <input type="text" name="posicionamento" id="posicionamento" required>
+      <label for="tipoDeServico" class="selectLabel"></label>
+      <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select">
+        <option value="" select>Tipo</option>
+        <option value="instalacao">Instalação</option>
+        <option value="manobraDePon">Manobra de Pon</option>
+        <option value="mudancaDeEndereco">Mudança de Endereço</option>
+        <option value="trocaDeEquipamento">Troca de Equipamento</option>
+      </select>
+      <label for="instalador" class="selectLabel"></label>
+      <select name="instalador" id="instalador" class="grid-3 instalador select">
+        <option value="" select>Instalador</option>
+        <option value="alessandro">Alessandro</option>
+        <option value="edsonVeiga">Edson Veiga</option>
+        <option value="redes">Redes</option>
+        <option value="viniciusMichetti">Vinicius Michetti</option>
+        <option value="viniciusPascoali">Vinicius Pascoali</option>
+      </select>
+      <label for="suporte" class="selectLabel"></label>
+      <select name="suporte" id="suporte" class="grid-3 suporte select">
+        <option value="" select>Suporte</option>
+        <option value="heber">Heber</option>
+        <option value="jean">Jean</option>
+        <option value="luis">Luis</option>
+        <option value="marcelo">Marcelo</option>
+      </select>
+      <button type="submit" id="btnProvisionar" name="btnProvisionar" class=" btn btnProvisionar" onclick="criaScript()">Provisionar</button>
+    </form>
+  </div>
+  <div class="grid-12 codigoGerado">
+    <label for="scriptOLT"><h2>Script</h2></label>
+    <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10"></textarea>
+    <button type="submit" id="btnCopiar" name="btnCopiar" class="btn BtnCopiar">Copiar</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="copy">
+        <div class="container">
+          <p class="grid-12">Naxos Telecom 2022 - Alguns direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="./js/function.js"></script>
+  
+</body>
+</html>
