@@ -3,6 +3,7 @@ const botaoProvisionar = document.getElementById('btnProvisionar');
 const botaoRemover = document.getElementById('btnRemover');
 const botaoPosicionar = document.getElementById('btnMac');
 const botaoLocalizar = document.getElementById('btnLocalizar');
+const botaoCopiar = document.getElementById('btnCopiar');
 
 //-------------------- PROVISIONAMENTO --------------------//
 function criaScriptProvisionamento (e) {
@@ -15,8 +16,14 @@ function criaScriptProvisionamento (e) {
   const tecnicoExterno = document.getElementById('instalador').value;
   const tecnicoInterno = document.getElementById('suporte').value;
 
+  //----- INSERE : NO SERIAL -----//
+  const string = serialNumber;
+  const metade = Math.floor(string.length / 3);
+  const resultado = string.substr(0,metade)+":"+string.substr(metade);
+  document.getElementById('serialNumber').innerHTML = resultado;
+
   const scriptProvisionamento = (`
-  configure equipment ont interface ${posicionamentoOLT} sw-ver-pland disabled desc1 "${nome}" desc2 "${endereco}" sernum ALCLB:${(serialNumber.substr(4))} sw-dnload-version disabled pland-cfgfile1 PREALCO015 dnload-cfgfile1 PREALCO015
+  configure equipment ont interface ${posicionamentoOLT} sw-ver-pland disabled desc1 "${nome}" desc2 "${endereco}" sernum ${resultado} sw-dnload-version disabled pland-cfgfile1 PREALCO015 dnload-cfgfile1 PREALCO015
   configure equipment ont interface ${posicionamentoOLT} admin-state up
   configure equipment ont slot ${posicionamentoOLT}/14 planned-card-type veip plndnumdataports 1 plndnumvoiceports 0
   configure equipment ont slot ${posicionamentoOLT}/14 admin-state up
@@ -33,6 +40,8 @@ function criaScriptProvisionamento (e) {
   addEventListener('click', function (e) {
     document.getElementById('scriptOLT').value = scriptProvisionamento;
     e.preventDefault()
+    copiarTexto();
+    alert("texto copiado");
   });
 };
 botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
@@ -76,8 +85,14 @@ botaoPosicionar.addEventListener('click', criaScriptPesquisaMac);
 function criaScriptLocalizar (e) {
   const serialNumber = document.getElementById('serialNumber').value;
 
+    //----- INSERE : NO SERIAL -----//
+    const string = serialNumber;
+    const metade = Math.floor(string.length / 3);
+    const resultado = string.substr(0,metade)+":"+string.substr(metade);
+    document.getElementById('serialNumber').innerHTML = resultado;
+
   const scriptLocalizar = (`
-  info configure equipment ont interface flat | match exact:${(serialNumber)}`
+  info configure equipment ont interface flat | match exact:${resultado}`
   );
 
   addEventListener('click', function (e) {
@@ -86,3 +101,10 @@ function criaScriptLocalizar (e) {
   });
 };
 botaoLocalizar.addEventListener('click', criaScriptLocalizar);
+
+function copiarTexto() {
+  let textoCopiado = document.getElementById("scriptOLT");
+  textoCopiado.select();
+  textoCopiado.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+};
