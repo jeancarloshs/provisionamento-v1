@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 </head>
 <body>
 
@@ -55,20 +56,20 @@
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" required>
       <label for="endereco">Endereço</label>
-      <input type="text" name="endereco" id="endereco" required>
-      <label for="patrimonio">Patrimonio</label>
       <input type="text" name="patrimonio" id="patrimonio" required>
       <label for="serialNumber">S/N</label>
       <input type="text" name="serialNumber" id="serialNumber" required>
       <label for="posicionamento">Posicionamento</label>
+      <input type="text" name="endereco" id="endereco" required>
+      <label for="patrimonio">Patrimonio</label>
       <input type="text" name="posicionamento" id="posicionamento" required>
       <label for="tipoDeServico" class="selectLabel"></label>
       <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select">
         <option value="" select>Tipo</option>
-        <option value="instalacao">Instalação</option>
-        <option value="manobraDePon">Manobra de Pon</option>
-        <option value="mudancaDeEndereco">Mudança de Endereço</option>
-        <option value="trocaDeEquipamento">Troca de Equipamento</option>
+        <option value="Instalação">Instalação</option>
+        <option value="Manobra de Pon">Manobra de Pon</option>
+        <option value="Mudança de Endereço">Mudança de Endereço</option>
+        <option value="Troca de Equipamento">Troca de Equipamento</option>
       </select>
       <label for="instalador" class="selectLabel"></label>
       <select name="instalador" id="instalador" class="grid-3 instalador select">
@@ -96,7 +97,7 @@
   </div>
   <div class="grid-12 codigoGerado">
     <label for="scriptOLT"><h2>Script</h2></label>
-    <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10"></textarea>
+    <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
     <button type="submit" id="btnCopiar" name="btnCopiar" class="btn BtnCopiar" onclick="copiarTexto()">Copiar</button>
   </div>
 </section>
@@ -105,14 +106,13 @@
   <div class="footer">
     <div class="container">
       <div class="copy">
-        <div class="container">
-          <p class="grid-12">Naxos Telecom 2022 - Alguns direitos reservados.</p>
-        </div>
+        <p class="grid-12">Naxos Telecom 2022 - Alguns direitos reservados.</p>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="./js/sheetDB.js"></script>
 <script src="./js/function.js"></script>
   
 </body>

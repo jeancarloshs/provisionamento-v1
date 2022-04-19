@@ -1,35 +1,51 @@
 var axios = require("axios");
 
-function salvar(nome, instalador, serialNumber, posicionamento, patrimonio, tipoDeAtivacao, tecnico){
+function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno){
     axios.post('https://sheetdb.io/api/v1/5xoth31j7gruf',{
         "data": {
-            "Nome": nome,
-            "Tecnico 1": instalador,
-            "S/N": serialNumber,
-            "Posicionamento": posicionamento,
-            "Patrimonio": patrimonio,
-            "Tipo de Ativação": tipoDeAtivacao,
-            "Tecnico 2": tecnico,
+            "CLIENTES": nome,
+            "TÉCNICO": tecnicoExterno,
+            "SN": serialNumber,
+            "POSICIONAMENTO": posicionamentoOLT,
+            "PATRIMONIO": patrimonio,
+            "TIPO DE ATIVAÇÃO": tipoDeServico,
+            "TÉCNICO": tecnicoInterno,
         }
-    },//{
-        // "auth": {
-        //     "username": "c9411whm",
-        //     "password": "ao6ncehm1mgbkzt9ycn6"
-        // }
-    //}
+    },{
+         "auth": {
+             "username": "LOGIN",
+             "password": "SENHA"
+         }
+    }
     )
 }
 
-function coletar() {
+function coletar(){
     axios.get('https://sheetdb.io/api/v1/5xoth31j7gruf', {
-        "data": {"Tipo de Ativação": "Instalação"}
-    }).then( response => {
-        console.log(response.data);
-        return;
-    });
-}
+        "auth": {
+            "username": "LOGIN",
+            "password": "SENHA"
+        }
+    })
+     .then( response => {
+          console.log(response.data);
+      });
+  }
 
-export const data_base = {coletar};
+  function produtoDe(nome){
+    axios.get(`https://sheetdb.io/api/v1/5xoth31j7gruf/search?ID=${nome}`, {
+        "auth": {
+          "username": "LOGIN",
+          "password": "SENHA"
+        }
+    })
+     .then( response => {
+       const data = response.data;
+       const usuario = data[0]
+       const produto = usuario.produto
+       console.log(produto);
+      });
+  }
 
 
 
