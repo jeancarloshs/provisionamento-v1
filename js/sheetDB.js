@@ -4,7 +4,7 @@ function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimoni
     axios.post('https://sheetdb.io/api/v1/5xoth31j7gruf',{
         "data": {
             "CLIENTES": nome,
-            "TÉCNICO": tecnicoExterno,
+            "TÉCNICO 1": tecnicoExterno,
             "SN": serialNumber,
             "POSICIONAMENTO": posicionamentoOLT,
             "PATRIMONIO": patrimonio,
