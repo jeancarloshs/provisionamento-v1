@@ -68,6 +68,11 @@ h2 {
   color: #501cd3;
 }
 
+.header_menu ul li a.menu_ativo {
+  /* color: #ffa693; */
+  color: #FAA828;
+}
+
 .formulario {
   color: white;
 }

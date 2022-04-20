@@ -65,8 +65,6 @@ function coletar(){
 
 
 
-
-
 // var axios = requite('axios');
 
 // function salvar(valores){
