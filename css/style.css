@@ -134,6 +134,11 @@ h2 {
   width: 580px;
 }
 
+.dadosTable {
+  overflow: hidden;
+  height: 500px;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
