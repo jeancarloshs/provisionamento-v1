@@ -65,12 +65,17 @@ h2 {
 }
 
 .header_menu ul li a:hover {
-  color: #501cd3;
+  /* color: #501cd3; */
+  color: #080705;
 }
 
 .header_menu ul li a.menu_ativo {
   /* color: #ffa693; */
   color: #FAA828;
+}
+
+.header_menu ul li a.menu_ativo:hover {
+  color: #080705;
 }
 
 .formulario {
