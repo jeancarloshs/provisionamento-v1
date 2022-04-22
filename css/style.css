@@ -108,6 +108,16 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* REMOVE SETA SELETORA DO INPUT */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .formFormulario option {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
