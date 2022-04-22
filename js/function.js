@@ -33,12 +33,7 @@ let { data, error } = await supabase
   .from('PROVISIONAMENTO')
   .insert([
     { 
-      clientes: 'nome',
-      tecnicoRua: 'tecnicoExterno',
-      numberSerial: 'serialNumber',
-      posicionamento: 'posicionamentoOLT',
-      tipoDeAtivacao: 'tipoDeServico',
-      tecnicoSup: 'tecnicoInterno'
+      clientes: nome
     },
   ])
   
