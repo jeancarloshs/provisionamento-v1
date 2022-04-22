@@ -31,7 +31,7 @@ function coletar(){
           console.log(response.data);
       });
   }
-
+  
   function produtoDe(nome){
     axios.get(`https://sheetdb.io/api/v1/5xoth31j7gruf/search?ID=${nome}`, {
         "auth": {
@@ -46,34 +46,3 @@ function coletar(){
        console.log(produto);
       });
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var axios = requite('axios');
-
-// function salvar(valores){
-//     axios.post('{URL}',{
-//         "data": {"foo": "bar"}
-//     },{
-//         "auth": {
-//             "username": "{USERNAME}",
-//             "password": "{PASSWORD}"
-//         }
-//     })
-// }

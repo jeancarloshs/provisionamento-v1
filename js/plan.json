@@ -1,0 +1,74 @@
+{"plan_info":  [
+    {
+    "CLIENTES": "CLIENTES",
+    "TÉCNICO 1": "TÉCNICO 1",
+    "SN": "SN",
+    "POSICIONAMENTO": "POSICIONAMENTO",
+    "PATRIMONIO": "PATRIMONIO",
+    "SERVICO": "1",
+    "TECNICO": "TÉCNICO"
+    },
+    {
+    "CLIENTES": "CLIENTES",
+    "TÉCNICO 1": "TÉCNICO 1",
+    "SN": "SN",
+    "POSICIONAMENTO": "POSICIONAMENTO",
+    "PATRIMONIO": "PATRIMONIO",
+    "SERVICO": "3",
+    "TECNICO": "TÉCNICO"
+    },
+    {
+    "CLIENTES": "Jean Carlos",
+    "TÉCNICO 1": "Edson Veiga",
+    "SN": "NBELB16F788D",
+    "POSICIONAMENTO": "1/1/4/4",
+    "PATRIMONIO": "1024",
+    "SERVICO": "5",
+    "TECNICO": "Jean"
+    },
+    {
+    "CLIENTES": "Hugo Leonardo Mendes de Matos",
+    "TECNICO_1": "Vinicius Michetti",
+    "SN": "NBELB16F788D",
+    "POSICIONAMENTO": "1/1/4/4/33",
+    "PATRIMONIO": "1559",
+    "SERVICO": "9",
+    "TECNICO": "Marcelo"
+    },
+    {
+    "CLIENTES": "CLIENTES",
+    "TÉCNICO 1": "TÉCNICO 1",
+    "SN": "SN",
+    "POSICIONAMENTO": "POSICIONAMENTO",
+    "PATRIMONIO": "PATRIMONIO",
+    "SERVICO": "12",
+    "TECNICO": "TÉCNICO"
+    },
+    {
+    "CLIENTES": "CLIENTES",
+    "TÉCNICO 1": "TÉCNICO 1",
+    "SN": "SN",
+    "POSICIONAMENTO": "POSICIONAMENTO",
+    "PATRIMONIO": "PATRIMONIO",
+    "SERVICO": "22",
+    "TECNICO": "TÉCNICO"
+    },
+    {
+    "CLIENTES": "Jean Carlos",
+    "TÉCNICO 1": "Edson Veiga",
+    "SN": "NBELB16F788D",
+    "POSICIONAMENTO": "1/1/4/4",
+    "PATRIMONIO": "1024",
+    "SERVICO": "44",
+    "TECNICO": "Jean"
+    },
+    {
+    "CLIENTES": "Hugo Leonardo Mendes de Matos",
+    "TÉCNICO 1": "Vinicius Michetti",
+    "SN": "NBELB16F788D",
+    "POSICIONAMENTO": "1/1/4/4/33",
+    "PATRIMONIO": "1559",
+    "SERVICO": "7",
+    "TECNICO": "Marcelo"
+    }
+  ]}

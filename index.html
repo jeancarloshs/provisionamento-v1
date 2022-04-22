@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  
 </head>
 <body>
 
@@ -107,11 +108,13 @@
       <button type="submit" id="btnLocalizar" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptLocalizar(event)">Localizar</button>
 
   </div>
+
   <div class="grid-12 codigoGerado">
     <label for="scriptOLT"><h2>Script</h2></label>
     <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
     <button type="submit" id="btnCopiar" name="btnCopiar" class="btn BtnCopiar" onclick="copiarTexto()">Copiar</button>
   </div>
+
 </section>
 
 <footer>
@@ -126,6 +129,8 @@
 
 <script src="./js/sheetDB.js"></script>
 <script src="./js/function.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
+<script src="https://unpkg.com/@supabase/supabase-js" type="module"></script>
   
 </body>
 </html>
