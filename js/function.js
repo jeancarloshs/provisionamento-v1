@@ -22,6 +22,37 @@ function criaScriptProvisionamento (e) {
   const resultado = string.substr(0,metade)+":"+string.substr(metade);
   document.getElementById('serialNumber').innerHTML = resultado;
 
+  const { createClient } = supabase;
+
+const supabaseClient = createClient("https://hbnnejxzvuzwlmtekpos.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g");
+
+console.log('Supabase Instance: ', supabase)
+
+const main = async () => {
+let { data, error } = await supabase
+  .from('PROVISIONAMENTO')
+  .insert([
+    { 
+      clientes: 'nome',
+      tecnicoRua: 'tecnicoExterno',
+      numberSerial: 'serialNumber',
+      posicionamento: 'posicionamentoOLT',
+      tipoDeAtivacao: 'tipoDeServico',
+      tecnicoSup: 'tecnicoInterno'
+    },
+  ])
+  
+
+  if (error) {
+    console.error(error)
+    return
+  }
+
+  console.log(data)
+}
+
+main()
+
 //VALIDAÇÃO FORMULARIO
 // if (nome == '') {
 //   console.log('preencha o campo nome')
@@ -59,7 +90,6 @@ exit all \n`
   document.getElementById('scriptOLT').value = scriptProvisionamento;
   e.preventDefault();
   copiarTexto();
-  BDsave;
   salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
   console.log([nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
 };
