@@ -18,7 +18,7 @@ function initSupa () {
       console.error('erro: ',error)
       return
     }
-    console.log('data: ',data);
+    console.log('Sucesso', PROVISIONAMENTO);
   }
   console.log('resulado dentro da função: ',puxaInfo)
 }
