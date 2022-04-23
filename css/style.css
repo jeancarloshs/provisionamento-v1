@@ -11,7 +11,7 @@ html, body {
   justify-content: space-between;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Outfit', sans-serif;
   font-family: 'Roboto', sans-serif;
   /* background: rgb(208,229,255);
