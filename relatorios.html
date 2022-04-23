@@ -21,7 +21,7 @@
   <meta property="og:url" content="https://jeancarloshs.github.io/provisionamento/">
   <meta property="og:title" content="">
   <meta property="og:image" content="https://jeancarloshs.github.io/provisionamento/img/naxos_telecom_logo.png">
-  <meta property="og:description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
+  <meta property="og:description" content="ágina voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
 
   <meta property="article:author" content="Jean Carlos">
   <!-- final meta tags seo -->
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -42,8 +42,8 @@
       </a>
       <nav class="grid-12 header_menu">
         <ul>
-          <li><a href="listaTB.html" class="menu_ativo">Lista</a></li>
-          <li><a href="relatorios.html">Relatorios</a></li>
+          <li><a href="listaTB.html">Lista</a></li>
+          <li><a href="relatorios.html" class="menu_ativo">Relatorios</a></li>
           <li><a href="#">Menu</a></li>
           <li><a href="#">Menu</a></li>
         </ul>
@@ -51,8 +51,8 @@
     </div>
   </header> <!-- header -->
 
-  <div class="container dadosTable">
-    <script src="https://sheetdb.io/s/t/d5g8gjc5yfz7p.js"></script>
+  <div>
+    <canvas id="myChart"></canvas>
   </div>
 
 <footer>
@@ -65,8 +65,8 @@
   </div>
 </footer>
 
-<script src="./js/sheetDB.js"></script>
 <script src="./js/function.js"></script>
+<script src="./js/app.js"></script>
 <script src="https://unpkg.com/@supabase/supabase-js" type="module"></script>
 
 </body>
