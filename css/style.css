@@ -7,7 +7,11 @@
 }
 
 html, body {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   height: 100vh;
+  overflow: hidden;
   font-family: 'Outfit', sans-serif;
   font-family: 'Roboto', sans-serif;
   /* background: rgb(208,229,255);
@@ -154,15 +158,37 @@ input::-webkit-inner-spin-button {
   height: 500px;
 }
 
+#myChart{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 700px !important;
+  width: 100% !important;
+}
+
 .footer {
-  position: fixed;
-  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 50px;
   background-color: #0B5384;
 }
 
-.copy p {
-  margin-top: 15px;
+.footer .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
+}
+
+.copy .grid-12{
+  margin: 0;
+  text-align: center;
 }
