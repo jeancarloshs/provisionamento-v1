@@ -105,7 +105,7 @@ function initSupa () {
       text: 'Serviços Realizados'
     },
     xaxis: {
-      categories: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      categories: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
       labels: {
         formatter: function (val) {
           return val
@@ -130,7 +130,7 @@ function initSupa () {
     legend: {
       position: 'top',
       horizontalAlign: 'left',
-      offsetX: 40
+      offsetX: 50
     }
     };
 
