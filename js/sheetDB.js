@@ -1,7 +1,7 @@
-var axios = require("axios");
+const { post, get } = "axios";
 
 function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno){
-    axios.post('https://sheetdb.io/api/v1/5xoth31j7gruf',{
+    post('https://sheetdb.io/api/v1/5xoth31j7gruf',{
         "data": {
             "CLIENTES": nome,
             "TÉCNICO 1": tecnicoExterno,
@@ -21,7 +21,7 @@ function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimoni
 }
 
 function coletar(){
-    axios.get('https://sheetdb.io/api/v1/5xoth31j7gruf', {
+    get('https://sheetdb.io/api/v1/5xoth31j7gruf', {
         "auth": {
             "username": "LOGIN",
             "password": "SENHA"
@@ -33,7 +33,7 @@ function coletar(){
   }
   
   function produtoDe(nome){
-    axios.get(`https://sheetdb.io/api/v1/5xoth31j7gruf/search?ID=${nome}`, {
+    get(`https://sheetdb.io/api/v1/5xoth31j7gruf/search?ID=${nome}`, {
         "auth": {
           "username": "LOGIN",
           "password": "SENHA"
