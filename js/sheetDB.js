@@ -1,4 +1,4 @@
-const { post, get } = "axios";
+var axios = require("axios");
 
 function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno){
     post('https://sheetdb.io/api/v1/5xoth31j7gruf',{
