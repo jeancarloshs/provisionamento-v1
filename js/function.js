@@ -4,6 +4,8 @@ const botaoRemover = document.getElementById('btnRemover');
 const botaoPosicionar = document.getElementById('btnMac');
 const botaoLocalizar = document.getElementById('btnLocalizar');
 const botaoCopiar = document.getElementById('btnCopiar');
+const botaoEnviarPlanilha = document.getElementById('btnEnviaPlanilha');
+const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 //-------------------- PROVISIONAMENTO --------------------//
 function criaScriptProvisionamento (e) {
@@ -91,7 +93,6 @@ function criaScriptProvisionamento (e) {
   document.getElementById('scriptOLT').value = scriptProvisionamento;
   e.preventDefault();
   copiarTexto();
-  salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
   console.log([nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
 };
 // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
@@ -152,3 +153,16 @@ function copiarTexto() {
   textoCopiado.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(textoCopiado.value);
 };
+
+
+function enviaPlanilha() {
+  const nome = document.getElementById('nome').value;
+  const patrimonio = document.getElementById('patrimonio').value;
+  const serialNumber = document.getElementById('serialNumber').value;
+  const posicionamentoOLT = document.getElementById('posicionamento').value;
+  const tipoDeServico = document.getElementById('tipoDeServico').value;
+  const tecnicoExterno = document.getElementById('instalador').value;
+  const tecnicoInterno = document.getElementById('suporte').value;
+  salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
+  alert("Informações enviadas para Planilha!!")
+}
