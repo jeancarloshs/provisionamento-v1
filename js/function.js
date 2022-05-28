@@ -166,3 +166,7 @@ function enviaPlanilha() {
   salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
   alert("Informações enviadas para Planilha!!")
 }
+
+function apagaForm() {
+	document.getElementById('formInformacoes').reset();
+}
