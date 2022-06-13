@@ -18,6 +18,13 @@ function criaScriptProvisionamento (e) {
   const tecnicoExterno = document.getElementById('instalador').value;
   const tecnicoInterno = document.getElementById('suporte').value;
 
+  // Para simplesmente remover acentos e cedilha de uma string e retornar a mesma string sem os acentos,
+  // podemos usar o método String.prototype.normalize do ES6, seguido de um String.prototype.replace
+
+  const parsedNome = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const parsedEndereco = endereco.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  //console.log(parsedNome);
+
   //----- INSERE : NO SERIAL -----//
   const string = serialNumber;
   const metade = Math.floor(string.length / 3);
@@ -76,7 +83,7 @@ function criaScriptProvisionamento (e) {
   // }
 
   // else {
-  const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland disabled desc1 "${nome}" desc2 "${endereco}" sernum ${resultado} sw-dnload-version disabled pland-cfgfile1 PREALCO015 dnload-cfgfile1 PREALCO015
+  const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland disabled desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version disabled pland-cfgfile1 PREALCO015 dnload-cfgfile1 PREALCO015
   configure equipment ont interface ${posicionamentoOLT} admin-state up
   configure equipment ont slot ${posicionamentoOLT}/14 planned-card-type veip plndnumdataports 1 plndnumvoiceports 0
   configure equipment ont slot ${posicionamentoOLT}/14 admin-state up
@@ -93,7 +100,7 @@ function criaScriptProvisionamento (e) {
   document.getElementById('scriptOLT').value = scriptProvisionamento;
   e.preventDefault();
   copiarTexto();
-  console.log([nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+  console.log([parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
 };
 // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
 
