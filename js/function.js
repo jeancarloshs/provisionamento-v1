@@ -48,7 +48,8 @@ function criaScriptProvisionamento (e) {
         tipoDeAtivacao: tipoDeServico,
         posicionamento: posicionamentoOLT,
         patrimonioNX: patrimonio,
-        tecnicoSup: tecnicoInterno
+        tecnicoSup: tecnicoInterno,
+	data: ((new Date()).toISOString()).toLocaleString('br-SP', { hour12: false })
       },
     ])
     
