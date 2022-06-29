@@ -111,10 +111,11 @@ function check(e) {
         }
     
         
-        if(send) {   
-          botaoProvisionar.onclick = function (event) {
-            criaScriptProvisionamento(e); 
-          }       
+        if(send) {
+          botaoProvisionar.addEventListener('click',  criaScriptProvisionamento);
+          // botaoProvisionar.onclick = function (event) {
+          //   criaScriptProvisionamento(e); 
+          // }       
           console.log(send)
           // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
         }
