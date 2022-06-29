@@ -90,7 +90,7 @@ function check(e) {
     let inputValidator = {
       handleSubmit:(event)=>{
         event.preventDefault();
-        let send = false;
+        let send = true;
     
         let inputs = form.querySelectorAll('input');
         let selects = form.querySelectorAll('select');
@@ -107,16 +107,17 @@ function check(e) {
   
             console.log("inputs:", inputs)
             console.log("erro:", check)
-          } else {
-            send = true;
           }
-        } return send;
+        }
     
         
-        // if(send) {
-        //   criaScriptProvisionamento(e);
-        //   console.log(criaScriptProvisionamento)
-        // }
+        if(send) {   
+          botaoProvisionar.onclick = function (event) {
+            criaScriptProvisionamento(e); 
+          }       
+          console.log(send)
+          // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
+        }
   
   
       // REGRAS DA VALIDAÇÃO DO FORMULARIO
