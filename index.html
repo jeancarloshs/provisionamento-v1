@@ -55,25 +55,25 @@
 <section class="container">
   <div class="grid-6 formulario">
 
-    <form id="formInformacoes" method="POST" class="formFormulario">
+    <form id="formInformacoes" method="POST" class="formFormulario formValidation">
 
       <label for="nome"></label>
-      <input type="text" id="nome" name="nome" placeholder="Nome" required>
+      <input type="text" id="nome" name="nome" placeholder="Nome" data-rules="required|min=3">
 
       <label for="endereco"></label>
-      <input type="text" name="endereco" id="endereco" placeholder="Endereço" required>
+      <input type="text" name="endereco" id="endereco" placeholder="Endereço" data-rules="required">
 
       <label for="patrimonio"></label>
-      <input type="text" name="patrimonio" id="patrimonio" placeholder="Patrimonio" required>
+      <input type="text" name="patrimonio" id="patrimonio" placeholder="Patrimonio" data-rules="required">
 
       <label for="serialNumber"></label>
-      <input type="text" name="serialNumber" id="serialNumber" placeholder="S/N" required>
+      <input type="text" name="serialNumber" id="serialNumber" placeholder="S/N" data-rules="required">
 
       <label for="posicionamento"></label>
-      <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" required>
+      <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" data-rules="required|min=4">
 
       <label for="tipoDeServico" class="selectLabel"></label>
-      <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select">
+      <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select" data-rules="required">
         <option value="" select>Tipo</option>
         <option value="Instalação">Instalação</option>
         <option value="Manobra de Pon">Manobra de Pon</option>
@@ -82,7 +82,7 @@
       </select>
 
       <label for="instalador" class="selectLabel"></label>
-      <select name="instalador" id="instalador" class="grid-3 instalador select">
+      <select name="instalador" id="instalador" class="grid-3 instalador select" data-rules="required">
         <option value="" select>Instalador</option>
         <option value="Edson Veiga">Edson Veiga</option>
         <option value="Redes">Redes</option>
@@ -92,7 +92,7 @@
       </select>
 
       <label for="suporte" class="selectLabel"></label>
-      <select name="suporte" id="suporte" class="grid-3 suporte select">
+      <select name="suporte" id="suporte" class="grid-3 suporte select" data-rules="required">
         <option value="" select>Suporte</option>
         <option value="Ana Clara">Ana Clara</option>
         <option value="Caio">Caio</option>
@@ -101,13 +101,13 @@
         <option value="Luis">Luis</option>
       </select>
 
-    </form>
-    
       <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="criaScriptProvisionamento(event)">Provisionar</button>
       <button type="submit" id="btnRemover" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptRemover(event)">Remover</button>
       <br />
       <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="criaScriptPesquisaMac(event)">Mac</button>
       <button type="submit" id="btnLocalizar" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptLocalizar(event)">Localizar</button>
+
+    </form>
 
   </div>
 
@@ -134,7 +134,7 @@
 <script src="./js/sheetDB.js"></script>
 <script src="./js/function.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
-<script src="https://unpkg.com/@supabase/supabase-js" type="module"></script>
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
   
 </body>
 </html>
