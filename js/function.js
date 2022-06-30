@@ -84,7 +84,7 @@ console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionament
 
   }
   
-  // VALIDADOR DE FORMULARIO
+// VALIDADOR DE FORMULARIO
 function check(e) {
     // VALIDADOR DE FORMULARIO
     let inputValidator = {
@@ -115,7 +115,7 @@ function check(e) {
           botaoProvisionar.addEventListener('click',  criaScriptProvisionamento);
           // botaoProvisionar.onclick = function (event) {
           //   criaScriptProvisionamento(e); 
-          // }       
+          // }      
           console.log(send)
           // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
         }
