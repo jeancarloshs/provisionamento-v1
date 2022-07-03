@@ -149,7 +149,6 @@ function check(e) {
                 if(input.value.length < rDetails[1]) {
                   return 'Obrigatorio o minimo de '+rDetails[1]+' caracteres.';
                 }
-              break;
             }
           }
         }
