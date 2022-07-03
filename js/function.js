@@ -7,6 +7,51 @@ const botaoCopiar = document.getElementById('btnCopiar');
 const botaoEnviarPlanilha = document.getElementById('btnEnviaPlanilha');
 const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
+
+
+function salvaDB() {
+  const nome = document.getElementById('nome').value;
+  const endereco = document.getElementById('endereco').value;
+  const patrimonio = document.getElementById('patrimonio').value;
+  const serialNumber = document.getElementById('serialNumber').value;
+  const posicionamentoOLT = document.getElementById('posicionamento').value;
+  const tipoDeServico = document.getElementById('tipoDeServico').value;
+  const tecnicoExterno = document.getElementById('instalador').value;
+  const tecnicoInterno = document.getElementById('suporte').value;
+
+  const { createClient } = supabase;
+
+  const _supabase = createClient("https://hbnnejxzvuzwlmtekpos.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g");
+  //console.log('Supabase Instance: ', _supabase)
+
+  const main = async () => {
+    let { data, error } = await _supabase
+      .from('PROVISIONAMENTO')
+      .insert([
+        { 
+          clientes: nome,
+          tecnicoRua: tecnicoExterno,
+          numberSerial: serialNumber,
+          tipoDeAtivacao: tipoDeServico,
+          posicionamento: posicionamentoOLT,
+          patrimonioNX: patrimonio,
+          tecnicoSup: tecnicoInterno,
+          data: ((new Date()).toISOString()).toLocaleString('br-SP', { hour12: false })
+        },
+      ])
+      
+  
+      if (error) {
+        console.error("error:", error)
+        return
+      }
+  
+      console.log("data:", data)
+  }
+  
+    main();
+};// FINAL function salvaDB
+
 //-------------------- PROVISIONAMENTO --------------------//
 function criaScriptProvisionamento (e) {
   const nome = document.getElementById('nome').value;
@@ -31,39 +76,6 @@ function criaScriptProvisionamento (e) {
   const resultado = string.substr(0,metade)+":"+string.substr(metade);
   document.getElementById('serialNumber').innerHTML = resultado;
 
-  const { createClient } = supabase;
-
-  const _supabase = createClient("https://hbnnejxzvuzwlmtekpos.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g");
-  //console.log('Supabase Instance: ', _supabase)
-
-const main = async () => {
-  let { data, error } = await _supabase
-    .from('PROVISIONAMENTO')
-    .insert([
-      { 
-        clientes: nome,
-        tecnicoRua: tecnicoExterno,
-        numberSerial: serialNumber,
-        tipoDeAtivacao: tipoDeServico,
-        posicionamento: posicionamentoOLT,
-        patrimonioNX: patrimonio,
-        tecnicoSup: tecnicoInterno,
-        data: ((new Date()).toISOString()).toLocaleString('br-SP', { hour12: false })
-      },
-    ])
-    
-
-    if (error) {
-      console.error("error:", error)
-      return
-    }
-
-    console.log("data:", data)
-  }
-
-  main()
-
-
 const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland disabled desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version disabled pland-cfgfile1 PREALCO015 dnload-cfgfile1 PREALCO015
 configure equipment ont interface ${posicionamentoOLT} admin-state up
 configure equipment ont slot ${posicionamentoOLT}/14 planned-card-type veip plndnumdataports 1 plndnumvoiceports 0
@@ -82,7 +94,7 @@ e.preventDefault();
 copiarTexto();
 console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
 
-  }
+};// FINAL function criaScriptProvisionamento
   
 // VALIDADOR DE FORMULARIO
 function check(e) {
@@ -112,12 +124,8 @@ function check(e) {
     
         
         if(send) {
-          botaoProvisionar.addEventListener('click',  criaScriptProvisionamento);
-          // botaoProvisionar.onclick = function (event) {
-          //   criaScriptProvisionamento(e); 
-          // }      
-          console.log(send)
-          // botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
+          criaScriptProvisionamento (e);
+          //console.log(send)
         }
   
   
@@ -170,10 +178,7 @@ function check(e) {
   
     let form = document.querySelector('.formValidation');
     form.addEventListener('submit', inputValidator.handleSubmit);
-}//
-
-// botaoProvisionar.addEventListener('click', criaScriptProvisionamento);
-
+};// FINAL function check
 
 //-------------------- REMOVER --------------------//
 function criaScriptRemover (e) {
@@ -190,9 +195,7 @@ exit all \n`
     document.getElementById('scriptOLT'). value = scriptRemoveONU;
     e.preventDefault();
     copiarTexto();
-};
-// botaoRemover.addEventListener('click', criaScriptRemover); 
-
+};// FINAL function criaScriptRemover
 
 //-------------------- MAC --------------------//
 function criaScriptPesquisaMac (e) {
@@ -203,8 +206,7 @@ function criaScriptPesquisaMac (e) {
     document.getElementById('scriptOLT').value = scriptPesquisaMac;
     e.preventDefault();
     copiarTexto();
-};
-// botaoPosicionar.addEventListener('click', criaScriptPesquisaMac);
+};// FINAL function criaScriptPesquisaMac
 
 //-------------------- LOCALIZAR --------------------//
 function criaScriptLocalizar (e) {
@@ -221,15 +223,14 @@ function criaScriptLocalizar (e) {
     document.getElementById('scriptOLT').value = scriptLocalizar;
     e.preventDefault();
     copiarTexto();
-};
-// botaoLocalizar.addEventListener('click', criaScriptLocalizar);
+};// FINAL function criaScriptLocalizar
 
 function copiarTexto() {
   let textoCopiado = document.getElementById("scriptOLT");
   textoCopiado.select();
   textoCopiado.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(textoCopiado.value);
-};
+};// FINAL function copiarTexto
 
 
 function enviaPlanilha() {
@@ -241,23 +242,11 @@ function enviaPlanilha() {
   const tecnicoExterno = document.getElementById('instalador').value;
   const tecnicoInterno = document.getElementById('suporte').value;
   salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
-  alert("Informações enviadas para Planilha!!")
-}
+  salvaDB();
+  alert("Informações enviadas para Planilha!!");
+};// FINAL function enviaPlanilha
 
-function apagaForm() {
-
-  let errorElement = document.querySelectorAll('.error');
-  for(let i=0; i<errorElement.length; i++) {
-    
-    input.style.borderColor = '#FF0000';
-
-    let errorElement = document.createElement('div');
-    errorElement.classList.add('error');
-    errorElement.innerHTML = error;
-    input.parentElement.insertBefore(errorElement, input.nextSibling);
-    errorElement[i].remove();
-  }
-
+function apagaForm() {  
 	document.getElementById('formInformacoes').reset();
 	document.getElementById('scriptOLT').value = "";
-}
+};// FINAL function apagaForm
