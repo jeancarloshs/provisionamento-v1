@@ -117,8 +117,8 @@ function check(e) {
             // exibir o erro
             inputValidator.showError(input, check);
   
-            console.log("inputs:", inputs)
-            console.log("erro:", check)
+            // console.log("inputs:", inputs)
+            // console.log("erro:", check)
           }
         }
     
