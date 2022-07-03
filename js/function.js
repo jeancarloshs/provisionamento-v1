@@ -8,7 +8,6 @@ const botaoEnviarPlanilha = document.getElementById('btnEnviaPlanilha');
 const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 
-
 function salvaDB() {
   const nome = document.getElementById('nome').value;
   const endereco = document.getElementById('endereco').value;
@@ -54,15 +53,20 @@ function salvaDB() {
 
 //-------------------- PROVISIONAMENTO --------------------//
 function criaScriptProvisionamento (e) {
-  const nome = document.getElementById('nome').value;
-  const endereco = document.getElementById('endereco').value;
-  const patrimonio = document.getElementById('patrimonio').value;
-  const serialNumber = document.getElementById('serialNumber').value;
-  const posicionamentoOLT = document.getElementById('posicionamento').value;
-  const tipoDeServico = document.getElementById('tipoDeServico').value;
-  const tecnicoExterno = document.getElementById('instalador').value;
-  const tecnicoInterno = document.getElementById('suporte').value;
+  const nome = document.getElementById('nome').value.trim();
+  const endereco = document.getElementById('endereco').value.trim();
+  const patrimonio = document.getElementById('patrimonio').value.trim();
+  const serialNumber = document.getElementById('serialNumber').value.trim();
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+  const tipoDeServico = document.getElementById('tipoDeServico').value.trim();
+  const tecnicoExterno = document.getElementById('instalador').value.trim();
+  const tecnicoInterno = document.getElementById('suporte').value.trim();
 
+  // Utilizei o .trim() para remover os espaços no final do campo, para isso não gerar erro
+  // quando for gerar o scrip para inserir na OLT
+
+  // ############################################################################################### //
+  
   // Para simplesmente remover acentos e cedilha de uma string e retornar a mesma string sem os acentos,
   // podemos usar o método String.prototype.normalize do ES6, seguido de um String.prototype.replace
 
@@ -145,11 +149,6 @@ function check(e) {
               case 'min':
                 if(input.value.length < rDetails[1]) {
                   return 'Obrigatorio o minimo de '+rDetails[1]+' caracteres.';
-                }
-              break;
-              case 'remover':
-                if(input.value == "") {
-                  return 'Campo não pode ser Vazio.';
                 }
               break;
             }

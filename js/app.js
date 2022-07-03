@@ -4,8 +4,6 @@ window.onload = function(){
 
 function initSupa () {
 
-
-
   const { createClient } = supabase;
   const _supabase = createClient
   ('https://hbnnejxzvuzwlmtekpos.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g');
@@ -23,7 +21,6 @@ function initSupa () {
       return
     }
     //console.log('Sucesso Instalação Janeiro', instalacaoJaneiro);
-
     const resultAtivacaoJaneiro = instalacaoJaneiro;
     //console.log('RESULTADO: ',resultJaneiro.length)
     //const resultForEach = resultJaneiro.forEach(function(nome, i) { console.log('[forEach]', nome, i);})
@@ -41,7 +38,6 @@ function initSupa () {
         return
       }
       //console.log('Sucesso Instalação Janeiro', instalacaoJaneiro);
-  
       const resultMudancaJaneiro = mudancaDeEnderecoJaneiro;
 
       const manobraJaneiro = async () => {
@@ -57,7 +53,6 @@ function initSupa () {
           return
         }
         //console.log('Sucesso Instalação Janeiro', instalacaoJaneiro);
-    
         const resultManobraJaneiro = manobraDePonJaneiro;
 
         const trocaJaneiro = async () => {
@@ -73,9 +68,7 @@ function initSupa () {
             return
           }
           //console.log('Sucesso Instalação Janeiro', instalacaoJaneiro);
-      
           const resultTrocaJaneiro = trocaDeEquipamentoJaneiro;
-    
     
   const instalFevereiro = async () => {
     let { data: instalacaoFevereiro, error } = await _supabase
@@ -106,7 +99,6 @@ function initSupa () {
           return
         }
         //console.log('Sucesso Instalação Fevereiro', instalacaoFevereiro);
-    
         const resultMudancaFevereiro = mudancaDeEnderecoFevereiro;
   
         const manobraFevereiro = async () => {
@@ -122,7 +114,6 @@ function initSupa () {
             return
           }
           //console.log('Sucesso Instalação Fevereiro', instalacaoFevereiro);
-      
           const resultManobraFevereiro = manobraDePonFevereiro;
   
           const trocaFevereiro = async () => {
@@ -138,7 +129,6 @@ function initSupa () {
               return
             }
             //console.log('Sucesso Instalação Fevereiro', instalacaoFevereiro);
-        
             const resultTrocaFevereiro = trocaDeEquipamentoFevereiro;  
 
   const instalMarco = async () => {
@@ -169,7 +159,6 @@ function initSupa () {
         return
       }
       //console.log('Sucesso Instalação Marco', instalacaoMarco);
-  
       const resultMudancaMarco = mudancaDeEnderecoMarco;
 
       const manobraMarco = async () => {
@@ -185,7 +174,6 @@ function initSupa () {
           return
         }
         //console.log('Sucesso Instalação Marco', instalacaoMarco);
-    
         const resultManobraMarco = manobraDePonMarco;
 
         const trocaMarco = async () => {
@@ -201,7 +189,6 @@ function initSupa () {
             return
           }
           //console.log('Sucesso Instalação Marco', instalacaoMarco);
-      
           const resultTrocaMarco = trocaDeEquipamentoMarco;  
 
   const instalAbril = async () => {
@@ -232,7 +219,6 @@ function initSupa () {
         return
       }
       //console.log('Sucesso Instalação Abril', instalacaoAbril);
-  
       const resultMudancaAbril = mudancaDeEnderecoAbril;
 
       const manobraAbril = async () => {
@@ -248,7 +234,6 @@ function initSupa () {
           return
         }
         //console.log('Sucesso Instalação Abril', instalacaoAbril);
-    
         const resultManobraAbril = manobraDePonAbril;
 
         const trocaAbril = async () => {
@@ -264,7 +249,6 @@ function initSupa () {
             return
           }
           //console.log('Sucesso Instalação Abril', instalacaoAbril);
-      
           const resultTrocaAbril = trocaDeEquipamentoAbril; 
 
   const instalMaio = async () => {
@@ -282,6 +266,51 @@ function initSupa () {
     //console.log('Sucesso', instalacaoMaio)
     const resultAtivacaoMaio = instalacaoMaio;
 
+    const mudancaMaio = async () => {
+      let { data: mudancaDeEnderecoMaio, error } = await _supabase
+      .from('PROVISIONAMENTO')
+      .select('tipoDeAtivacao, data')
+      .eq('tipoDeAtivacao', 'Mudança de Endereço')
+      .gte('data', '2022-05-01')
+      .lte('data', '2022-05-31')
+  
+      if (error) {
+        console.error('erro: ',error)
+        return
+      }
+      //console.log('Sucesso Instalação Maio', instalacaoMaio);
+      const resultMudancaMaio = mudancaDeEnderecoMaio;
+
+      const manobraMaio = async () => {
+        let { data: manobraDePonMaio, error } = await _supabase
+        .from('PROVISIONAMENTO')
+        .select('tipoDeAtivacao, data')
+        .eq('tipoDeAtivacao', 'Manobra de Pon')
+        .gte('data', '2022-05-01')
+        .lte('data', '2022-05-31')
+    
+        if (error) {
+          console.error('erro: ',error)
+          return
+        }
+        //console.log('Sucesso Instalação Maio', instalacaoMaio);
+        const resultManobraMaio = manobraDePonMaio;
+
+        const trocaMaio = async () => {
+          let { data: trocaDeEquipamentoMaio, error } = await _supabase
+          .from('PROVISIONAMENTO')
+          .select('tipoDeAtivacao, data')
+          .eq('tipoDeAtivacao', 'Troca de Equipamento')
+          .gte('data', '2022-05-01')
+          .lte('data', '2022-05-31')
+      
+          if (error) {
+            console.error('erro: ',error)
+            return
+          }
+          //console.log('Sucesso Instalação Maio', instalacaoMaio);
+          const resultTrocaMaio = trocaDeEquipamentoMaio; 
+
     const instalacaoJunho = async () => {
       let { data: instalacaoJunho, error } = await _supabase
       .from('PROVISIONAMENTO')
@@ -295,7 +324,6 @@ function initSupa () {
         return
       }
       //console.log('Sucesso Instalação Junho', instalacaoJunho);
-  
       const resultAtivacaoJunho = instalacaoJunho;
       //console.log('RESULTADO: ',resultJunho.length)
       //const resultForEach = resultJunho.forEach(function(nome, i) { console.log('[forEach]', nome, i);})
@@ -313,7 +341,6 @@ function initSupa () {
           return
         }
         //console.log('Sucesso Instalação Junho', instalacaoJunho);
-    
         const resultMudancaJunho = mudancaDeEnderecoJunho;
   
         const manobraJunho = async () => {
@@ -329,7 +356,6 @@ function initSupa () {
             return
           }
           //console.log('Sucesso Instalação Junho', instalacaoJunho);
-      
           const resultManobraJunho = manobraDePonJunho;
   
           const trocaJunho = async () => {
@@ -345,14 +371,45 @@ function initSupa () {
               return
             }
             //console.log('Sucesso Instalação Junho', instalacaoJunho);
-        
             const resultTrocaJunho = trocaDeEquipamentoJunho;
 
-            const instalacaoJulho = async () => {
-              let { data: instalacaoJulho, error } = await _supabase
+    const instalacaoJulho = async () => {
+      let { data: instalacaoJulho, error } = await _supabase
+      .from('PROVISIONAMENTO')
+      .select('tipoDeAtivacao, data')
+      .eq('tipoDeAtivacao', 'Instalação')
+      .gte('data', '2022-07-01')
+      .lte('data', '2022-07-31')
+  
+      if (error) {
+        console.error('erro: ',error)
+        return
+      }
+      //console.log('Sucesso Instalação Julho', instalacaoJulho);
+      const resultAtivacaoJulho = instalacaoJulho;
+      //console.log('RESULTADO: ',resultJulho.length)
+      //const resultForEach = resultJulho.forEach(function(nome, i) { console.log('[forEach]', nome, i);})
+  
+        const mudancaJulho = async () => {
+          let { data: mudancaDeEnderecoJulho, error } = await _supabase
+          .from('PROVISIONAMENTO')
+          .select('tipoDeAtivacao, data')
+          .eq('tipoDeAtivacao', 'Mudança de Endereço')
+          .gte('data', '2022-07-01')
+          .lte('data', '2022-07-31')
+      
+          if (error) {
+            console.error('erro: ',error)
+            return
+          }
+          //console.log('Sucesso Instalação Julho', instalacaoJulho);
+          const resultMudancaJulho = mudancaDeEnderecoJulho;
+    
+            const manobraJulho = async () => {
+              let { data: manobraDePonJulho, error } = await _supabase
               .from('PROVISIONAMENTO')
               .select('tipoDeAtivacao, data')
-              .eq('tipoDeAtivacao', 'Instalação')
+              .eq('tipoDeAtivacao', 'Manobra de Pon')
               .gte('data', '2022-07-01')
               .lte('data', '2022-07-31')
           
@@ -360,33 +417,14 @@ function initSupa () {
                 console.error('erro: ',error)
                 return
               }
-              //console.log('Sucesso Instalação Julho', instalacaoJulho);
-          
-              const resultAtivacaoJulho = instalacaoJulho;
-              //console.log('RESULTADO: ',resultJulho.length)
-              //const resultForEach = resultJulho.forEach(function(nome, i) { console.log('[forEach]', nome, i);})
-          
-              const mudancaJulho = async () => {
-                let { data: mudancaDeEnderecoJulho, error } = await _supabase
-                .from('PROVISIONAMENTO')
-                .select('tipoDeAtivacao, data')
-                .eq('tipoDeAtivacao', 'Mudança de Endereço')
-                .gte('data', '2022-07-01')
-                .lte('data', '2022-07-31')
-            
-                if (error) {
-                  console.error('erro: ',error)
-                  return
-                }
-                //console.log('Sucesso Instalação Julho', instalacaoJulho);
-            
-                const resultMudancaJulho = mudancaDeEnderecoJulho;
-          
-                const manobraJulho = async () => {
-                  let { data: manobraDePonJulho, error } = await _supabase
+              //console.log('Sucesso Instalação Julho', instalacaoJulho);      
+              const resultManobraJulho = manobraDePonJulho;
+      
+                const trocaJulho = async () => {
+                  let { data: trocaDeEquipamentoJulho, error } = await _supabase
                   .from('PROVISIONAMENTO')
                   .select('tipoDeAtivacao, data')
-                  .eq('tipoDeAtivacao', 'Manobra de Pon')
+                  .eq('tipoDeAtivacao', 'Troca de Equipamento')
                   .gte('data', '2022-07-01')
                   .lte('data', '2022-07-31')
               
@@ -395,38 +433,21 @@ function initSupa () {
                     return
                   }
                   //console.log('Sucesso Instalação Julho', instalacaoJulho);
-              
-                  const resultManobraJulho = manobraDePonJulho;
-          
-                  const trocaJulho = async () => {
-                    let { data: trocaDeEquipamentoJulho, error } = await _supabase
-                    .from('PROVISIONAMENTO')
-                    .select('tipoDeAtivacao, data')
-                    .eq('tipoDeAtivacao', 'Troca de Equipamento')
-                    .gte('data', '2022-07-01')
-                    .lte('data', '2022-07-31')
-                
-                    if (error) {
-                      console.error('erro: ',error)
-                      return
-                    }
-                    //console.log('Sucesso Instalação Julho', instalacaoJulho);
-                
-                    const resultTrocaJulho = trocaDeEquipamentoJulho;        
+                  const resultTrocaJulho = trocaDeEquipamentoJulho;        
 
     var options = {
       series: [{
       name: 'Instalações',
-      data: [resultAtivacaoJaneiro.length, resultAtivacaoFevereiro.length, resultAtivacaoMarco.length, resultAtivacaoAbril.length, 1, resultAtivacaoJunho.length, resultAtivacaoJulho.length, 1, 1, 1, 1, 1]
+      data: [resultAtivacaoJaneiro.length, resultAtivacaoFevereiro.length, resultAtivacaoMarco.length, resultAtivacaoAbril.length, resultAtivacaoMaio.length, resultAtivacaoJunho.length, resultAtivacaoJulho.length, 1, 1, 1, 1, 1]
     }, {
       name: 'Mudanças de Endereços',
-      data: [resultMudancaJaneiro.length, resultMudancaFevereiro.length, resultMudancaMarco.length, resultMudancaAbril.length, 1, resultMudancaJunho.length, resultMudancaJulho.length, 1, 1, 1, 1, 1]
+      data: [resultMudancaJaneiro.length, resultMudancaFevereiro.length, resultMudancaMarco.length, resultMudancaAbril.length, resultMudancaMaio.length, resultMudancaJunho.length, resultMudancaJulho.length, 1, 1, 1, 1, 1]
     }, {
       name: 'Manobras de Pons',
-      data: [resultManobraJaneiro.length, resultManobraFevereiro.length, resultManobraMarco.length, resultManobraAbril.length, 1, resultManobraJunho.length, resultManobraJulho.length, 1, 1, 1, 1, 1]
+      data: [resultManobraJaneiro.length, resultManobraFevereiro.length, resultManobraMarco.length, resultManobraAbril.length, resultManobraMaio.length, resultManobraJunho.length, resultManobraJulho.length, 1, 1, 1, 1, 1]
     }, {
       name: 'Trocas de Equipamentos',
-      data: [resultTrocaJaneiro.length, resultTrocaFevereiro.length, resultTrocaMarco.length, resultTrocaAbril.length, 1, resultTrocaJunho.length, resultTrocaJulho.length, 1, 1, 1, 1, 1]
+      data: [resultTrocaJaneiro.length, resultTrocaFevereiro.length, resultTrocaMarco.length, resultTrocaAbril.length, resultTrocaMaio.length, resultTrocaJunho.length, resultTrocaJulho.length, 1, 1, 1, 1, 1]
     }],
       chart: {
       type: 'bar',
@@ -499,7 +520,13 @@ function initSupa () {
     mudancaJunho()
   } // instalacaoJunho
     instalacaoJunho()
-  }
+  } // trocaMaio
+    trocaMaio()
+  } // manobraMaio
+    manobraMaio()
+  } // mudancaMaio
+    mudancaMaio()
+  } // instalMaio
     instalMaio() 
   } // trocaAbril
     trocaAbril()
