@@ -122,15 +122,12 @@ function check(e) {
           }
         }
     
-        
         if(send) {
           criaScriptProvisionamento (e);
           //console.log(send)
         }
-  
-  
-      // REGRAS DA VALIDAÇÃO DO FORMULARIO
-      },
+   
+      },// REGRAS DA VALIDAÇÃO DO FORMULARIO
       checkInput:(input) => {
         let rules = input.getAttribute('data-rules');
     
@@ -149,6 +146,12 @@ function check(e) {
                 if(input.value.length < rDetails[1]) {
                   return 'Obrigatorio o minimo de '+rDetails[1]+' caracteres.';
                 }
+              break;
+              case 'remover':
+                if(input.value == "") {
+                  return 'Campo não pode ser Vazio.';
+                }
+              break;
             }
           }
         }
