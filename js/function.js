@@ -183,8 +183,8 @@ function check(e) {
 
 //-------------------- REMOVER --------------------//
 function criaScriptRemover (e) {
-  const posicionamentoOLT = document.getElementById('posicionamento').value;
-
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+  
 const scriptRemoveONU = (`configure bridge port ${posicionamentoOLT}/14/1 no vlan-id 1005
 configure bridge port ${posicionamentoOLT}/14/1 no vlan-id 202
 configure equipment ont interface ${posicionamentoOLT} admin-state down
@@ -200,7 +200,7 @@ exit all \n`
 
 //-------------------- MAC --------------------//
 function criaScriptPesquisaMac (e) {
-  const posicionamentoOLT = document.getElementById('posicionamento').value;
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
 
   const scriptPesquisaMac = (`show vlan bridge-port-fdb ${posicionamentoOLT}/14/1 \n`);
 
@@ -211,7 +211,7 @@ function criaScriptPesquisaMac (e) {
 
 //-------------------- LOCALIZAR --------------------//
 function criaScriptLocalizar (e) {
-  const serialNumber = document.getElementById('serialNumber').value;
+  const serialNumber = document.getElementById('serialNumber').value.trim();
 
     //----- INSERE : NO SERIAL -----//
     const string = serialNumber;
