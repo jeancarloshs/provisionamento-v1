@@ -86,9 +86,13 @@ h2 {
   color: white;
 }
 
-.formFormulario label,
-.formFormulario button {
+.formFormulario label {
   display: block;
+  margin-top: 10px;
+}
+
+.formFormulario button {
+  display: inline-block;
   margin-top: 10px;
 }
 
@@ -205,4 +209,10 @@ input::-webkit-inner-spin-button {
 #timeline-chart .apexcharts-toolbar {
   opacity: 1;
   border: 0;
+}
+
+.error {
+  font-size: 10px;
+  color: #fff;
+  position: fixed;
 }
