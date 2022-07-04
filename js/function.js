@@ -8,6 +8,11 @@ const botaoEnviarPlanilha = document.getElementById('btnEnviaPlanilha');
 const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 
+// FUNÇÃO PARA ABRIR ALERTA ANTES DE SAIR DA PAGINA
+window.onbeforeunload = function(event) {
+  event.returnValue = "Mensagem de aviso";
+};
+
 function salvaDB() {
   const nome = document.getElementById('nome').value;
   const endereco = document.getElementById('endereco').value;
