@@ -260,3 +260,288 @@ function apagaForm() {
 	document.getElementById('formInformacoes').reset();
 	document.getElementById('scriptOLT').value = "";
 };// FINAL function apagaForm
+
+//-------------------- PROVISIONAMENTO BRIDGE --------------------//
+function criaScriptBridge (e) {
+  const nome = document.getElementById('nome').value.trim();
+  const endereco = document.getElementById('endereco').value.trim();
+  const patrimonio = document.getElementById('patrimonio').value.trim();
+  const serialNumber = document.getElementById('serialNumber').value.trim();
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+  const tipoDeServico = document.getElementById('tipoDeServico').value.trim();
+  const tecnicoExterno = document.getElementById('instalador').value.trim();
+  const tecnicoInterno = document.getElementById('suporte').value.trim();
+  const vlan = document.getElementById('vlanONU').value.trim();
+
+  // Utilizei o .trim() para remover os espaços no final do campo, para isso não gerar erro
+  // quando for gerar o scrip para inserir na OLT
+
+  // ############################################################################################### //
+  
+  // Para simplesmente remover acentos e cedilha de uma string e retornar a mesma string sem os acentos,
+  // podemos usar o método String.prototype.normalize do ES6, seguido de um String.prototype.replace
+
+  const parsedNome = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const parsedEndereco = endereco.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  //console.log(parsedNome);
+
+  //----- INSERE : NO SERIAL -----//
+  const string = serialNumber;
+  const metade = Math.floor(string.length / 3);
+  const resultado = string.substr(0,metade)+":"+string.substr(metade);
+  document.getElementById('serialNumber').innerHTML = resultado;
+
+const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version auto
+configure equipment ont interface ${posicionamentoOLT} admin-state up
+configure equipment ont slot ${posicionamentoOLT}/1 planned-card-type ethernet plndnumdataports 1 plndnumvoiceports 0
+configure equipment ont slot ${posicionamentoOLT}/1 admin-state up
+configure qos interface ${posicionamentoOLT}/1/1 upstream-queue 0 bandwidth-profile name:HSI_1G_UP 
+configure qos interface ${posicionamentoOLT}/1/1 queue 0 shaper-profile name:HSI_1G_DOWN
+configure interface port uni:${posicionamentoOLT}/1/1 admin-up
+configure bridge port ${posicionamentoOLT}/1/1 max-unicast-mac 128
+configure bridge port ${posicionamentoOLT}/1/1 vlan-id ${vlan}
+configure bridge port ${posicionamentoOLT}/1/1 pvid ${vlan}
+exit all \n`
+);
+document.getElementById('scriptOLT').value = scriptProvisionamento;
+e.preventDefault();
+copiarTexto();
+console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+};// FINAL function criaScriptProvisionamento
+
+//-------------------- PROVISIONAMENTO TELEFONIA --------------------//
+function criaScriptTelefonia (e) {
+  const nome = document.getElementById('nome').value.trim();
+  const endereco = document.getElementById('endereco').value.trim();
+  const patrimonio = document.getElementById('patrimonio').value.trim();
+  const serialNumber = document.getElementById('serialNumber').value.trim();
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+  const tipoDeServico = document.getElementById('tipoDeServico').value.trim();
+  const tecnicoExterno = document.getElementById('instalador').value.trim();
+  const tecnicoInterno = document.getElementById('suporte').value.trim();
+  const usuarioSIP = document.getElementById('usuarioSIP').value.trim();
+  const senhaSIP = document.getElementById('senhaSIP').value.trim();
+  const telefone = document.getElementById('telefone').value.trim();
+  
+
+  // Utilizei o .trim() para remover os espaços no final do campo, para isso não gerar erro
+  // quando for gerar o scrip para inserir na OLT
+
+  // ############################################################################################### //
+  
+  // Para simplesmente remover acentos e cedilha de uma string e retornar a mesma string sem os acentos,
+  // podemos usar o método String.prototype.normalize do ES6, seguido de um String.prototype.replace
+
+  const parsedNome = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const parsedEndereco = endereco.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  //console.log(parsedNome);
+
+  //----- INSERE : NO SERIAL -----//
+  const string = serialNumber;
+  const metade = Math.floor(string.length / 3);
+  const resultado = string.substr(0,metade)+":"+string.substr(metade);
+  document.getElementById('serialNumber').innerHTML = resultado;
+
+const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version auto voip-allowed iphost pland-cfgfile1 auto dnload-cfgfile1 auto
+configure equipment ont interface ${posicionamentoOLT} admin-state up
+configure equipment ont slot ${posicionamentoOLT}/2 planned-card-type pots plndnumdataports 0 plndnumvoiceports 2 admin-state up
+configure equipment ont slot ${posicionamentoOLT}/14 planned-card-type veip plndnumdataports 1 plndnumvoiceports 0  admin-state up
+configure qos interface ${posicionamentoOLT}/14/1 upstream-queue 0 bandwidth-profile name:HSI_1G_UP
+configure qos interface ${posicionamentoOLT}/14/1 queue 0 shaper-profile name:HSI_1G_DOWN
+configure qos interface ${posicionamentoOLT}/vuni upstream-queue 5 bandwidth-profile name:VOIP_UP_512K
+configure interface port uni:${posicionamentoOLT}/14/1 admin-up
+configure bridge port ${posicionamentoOLT}/14/1 max-unicast-mac 4
+configure bridge port ${posicionamentoOLT}/14/1 vlan-id 1005 tag single-tagged
+configure bridge port ${posicionamentoOLT}/14/1 vlan-id 202 tag single-tagged
+configure equipment ont interface ${posicionamentoOLT} plnd-var SIP
+configure bridge port ${posicionamentoOLT}/vuni max-unicast-mac 4
+configure bridge port ${posicionamentoOLT}/vuni vlan-id 1004
+configure bridge port ${posicionamentoOLT}/vuni pvid 1004
+configure iphost ont ont:${posicionamentoOLT}/1 dhcp enabled ping enabled traceroute enabled vlan 1004
+configure iphost ont ont:${posicionamentoOLT}/1 admin-state up
+configure voice ont voip-config ont:${posicionamentoOLT}/1 protocol sip
+configure voice ont sip-config ont:${posicionamentoOLT}/1 proxyserv-prof 2 outproxyserv-prof 4 primary-dns 1.1.1.1 reg-expire-time 590 aor-host-prt-prof 3 registrar-prof 4 soft-sw-vendor VSC uri-format sip-uri
+configure voice ont voice-port ${posicionamentoOLT}/2/1 admin-state locked
+configure voice ont voice-port ${posicionamentoOLT}/2/1 custinfo ont_porta_1 voipconfig sip pots-pwr-timer 300 rx-gain 1.000000 tx-gain 2.000000 impedance 600 voip-media-prof 4
+configure voice ont voice-sip-port ${posicionamentoOLT}/2/1 user-aor ${usuarioSIP} display-name ${telefone} val-scheme md5-digest user-name ${usuarioSIP} password plain:${senhaSIP} realm asterisk voice-mail-prof none ntwk-dp-prof 4 app-serv-prof 4 ac-code-prof 4
+configure voice ont voice-port ${posicionamentoOLT}/2/1 admin-state unlocked
+exit all \n`
+);
+document.getElementById('scriptOLT').value = scriptProvisionamento;
+e.preventDefault();
+copiarTexto();
+console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+};// FINAL function criaScriptProvisionamento
+
+//-------------------- MAC TELEFONIA --------------------//
+function PesquisaMacTelefonia (e) {
+  const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+
+  const scriptPesquisaMac = (`show vlan bridge-port-fdb ${posicionamentoOLT}/vuni \n`);
+
+    document.getElementById('scriptOLT').value = scriptPesquisaMac;
+    e.preventDefault();
+    copiarTexto();
+};// FINAL function criaScriptPesquisaMac
+
+// VALIDADOR DE FORMULARIO TELEFONIA
+function checkBridge(e) {
+  // VALIDADOR DE FORMULARIO
+  let inputValidator = {
+    handleSubmit:(event)=>{
+      event.preventDefault();
+      let send = true;
+  
+      let inputs = form.querySelectorAll('input');
+      let selects = form.querySelectorAll('select');
+
+      inputValidator.clearErrors();
+  
+      for(let i=0; i<inputs.length; i++) {
+        let input = inputs[i];
+        let check = inputValidator.checkInput(input);
+        if (check !== true) {
+          send = false;
+          // exibir o erro
+          inputValidator.showError(input, check);
+
+          // console.log("inputs:", inputs)
+          // console.log("erro:", check)
+        }
+      }
+  
+      if(send) {
+        criaScriptBridge (e);
+        //console.log(send)
+      }
+ 
+    },// REGRAS DA VALIDAÇÃO DO FORMULARIO
+    checkInput:(input) => {
+      let rules = input.getAttribute('data-rules');
+  
+      if (rules !== null) {
+        rules = rules.split('|'); // separa as regras
+        for(let k in rules) {
+          let rDetails = rules[k].split('=');
+  
+          switch(rDetails[0]) {
+            case 'required':
+              if(input.value == "") {
+                return 'Campo não pode ser Vazio.';
+              }
+            break;
+            case 'min':
+              if(input.value.length < rDetails[1]) {
+                return 'Obrigatorio o minimo de '+rDetails[1]+' caracteres.';
+              }
+            break;
+          }
+        }
+      }
+      return true;
+    },
+    showError:(input, error) => {
+      input.style.borderColor = '#FF0000';
+
+      let errorElement = document.createElement('div');
+      errorElement.classList.add('error');
+      errorElement.innerHTML = error;
+      input.parentElement.insertBefore(errorElement, input.nextSibling);
+    },
+    clearErrors:() => {
+      let inputs = form.querySelectorAll('input');
+      for(let i=0; i<inputs.length; i++) {
+        inputs[i].style = '';
+      }
+
+      let errorElement = document.querySelectorAll('.error');
+      for(let i=0; i<errorElement.length; i++) {
+        errorElement[i].remove();
+      }
+    }
+  }
+
+  let form = document.querySelector('.formValidation');
+  form.addEventListener('submit', inputValidator.handleSubmit);
+};// FINAL function check
+
+// VALIDADOR DE FORMULARIO TELEFONIA
+function checkTelefonia(e) {
+  // VALIDADOR DE FORMULARIO
+  let inputValidator = {
+    handleSubmit:(event)=>{
+      event.preventDefault();
+      let send = true;
+  
+      let inputs = form.querySelectorAll('input');
+      let selects = form.querySelectorAll('select');
+
+      inputValidator.clearErrors();
+  
+      for(let i=0; i<inputs.length; i++) {
+        let input = inputs[i];
+        let check = inputValidator.checkInput(input);
+        if (check !== true) {
+          send = false;
+          // exibir o erro
+          inputValidator.showError(input, check);
+
+          // console.log("inputs:", inputs)
+          // console.log("erro:", check)
+        }
+      }
+  
+      if(send) {
+        criaScriptTelefonia (e);
+        //console.log(send)
+      }
+ 
+    },// REGRAS DA VALIDAÇÃO DO FORMULARIO
+    checkInput:(input) => {
+      let rules = input.getAttribute('data-rules');
+  
+      if (rules !== null) {
+        rules = rules.split('|'); // separa as regras
+        for(let k in rules) {
+          let rDetails = rules[k].split('=');
+  
+          switch(rDetails[0]) {
+            case 'required':
+              if(input.value == "") {
+                return 'Campo não pode ser Vazio.';
+              }
+            break;
+            case 'min':
+              if(input.value.length < rDetails[1]) {
+                return 'Obrigatorio o minimo de '+rDetails[1]+' caracteres.';
+              }
+            break;
+          }
+        }
+      }
+      return true;
+    },
+    showError:(input, error) => {
+      input.style.borderColor = '#FF0000';
+
+      let errorElement = document.createElement('div');
+      errorElement.classList.add('error');
+      errorElement.innerHTML = error;
+      input.parentElement.insertBefore(errorElement, input.nextSibling);
+    },
+    clearErrors:() => {
+      let inputs = form.querySelectorAll('input');
+      for(let i=0; i<inputs.length; i++) {
+        inputs[i].style = '';
+      }
+
+      let errorElement = document.querySelectorAll('.error');
+      for(let i=0; i<errorElement.length; i++) {
+        errorElement[i].remove();
+      }
+    }
+  }
+
+  let form = document.querySelector('.formValidation');
+  form.addEventListener('submit', inputValidator.handleSubmit);
+};// FINAL function check

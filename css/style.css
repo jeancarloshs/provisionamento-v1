@@ -61,6 +61,10 @@ h2 {
   margin-top: 15px;
 }
 
+.active {
+  color: black;
+}
+
 .header_menu ul li a {
   font-size: 14px;
   font-weight: bold;
@@ -75,11 +79,12 @@ h2 {
 
 .header_menu ul li a.menu_ativo {
   /* color: #ffa693; */
-  color: #FAA828;
+  /* color: #FAA828; */
+  color: black;
 }
 
 .header_menu ul li a.menu_ativo:hover {
-  color: #080705;
+  color: #fff;
 }
 
 .formulario {

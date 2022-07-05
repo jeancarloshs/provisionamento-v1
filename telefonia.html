@@ -46,7 +46,7 @@
           <li><a href="listaTB.html">Lista</a></li>
           <li><a href="relatorios.html">Relatorios</a></li>
           <li><a href="bridge.html">Bridge</a></li>
-          <li><a href="telefonia.html">Telefonia</a></li>
+          <li><a href="telefonia.html" class="menu_ativo">Telefonia</a></li>
         </ul>
       </nav>
     </div>
@@ -71,6 +71,15 @@
 
       <label for="posicionamento"></label>
       <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" data-rules="required|min=9|remover">
+
+      <label for="usuarioSIP"></label>
+      <input type="text" name="usuarioSIP" id="usuarioSIP" placeholder="Usuario Sip" data-rules="required">
+
+      <label for="senhaSIP"></label>
+      <input type="text" name="senhaSIP" id="senhaSIP" placeholder="Senha Sip" data-rules="required">
+
+      <label for="telefone"></label>
+      <input type="text" name="telefone" id="telefone" placeholder="Telefone" data-rules="required">
 
       <label for="tipoDeServico" class="selectLabel"></label>
       <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select" data-rules="required">
@@ -101,10 +110,10 @@
         <option value="Luis">Luis</option>
       </select>
 
-      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Provisionar</button>
+      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="checkTelefonia(event)">Provisionar</button>
       <button type="submit" id="btnRemover" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptRemover(event)">Remover</button>
       <br />
-      <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="criaScriptPesquisaMac(event)">Mac</button>
+      <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="PesquisaMacTelefonia(event)">Mac</button>
       <button type="submit" id="btnLocalizar" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptLocalizar(event)">Localizar</button>
 
     </form>
@@ -112,7 +121,7 @@
   </div>
 
   <div class="grid-12 codigoGerado">
-    <label for="scriptOLT"><h2>Script</h2></label>
+    <label for="scriptOLT"><h2>Script Telefonia</h2></label>
     <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
     <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Limpar Dados</button>
     <button type="submit" id="btnEnviaPlanilha" name="btnEnviaPlanilha" class="btn BtnCopiar btnAcoes" onclick="enviaPlanilha()">Enviar p/ Planilha</button>
