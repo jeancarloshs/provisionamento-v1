@@ -268,10 +268,11 @@ function criaScriptBridge (e) {
   const patrimonio = document.getElementById('patrimonio').value.trim();
   const serialNumber = document.getElementById('serialNumber').value.trim();
   const posicionamentoOLT = document.getElementById('posicionamento').value.trim();
+  const modeloONU = document.getElementById('modelONU').value.trim();
+  const vlan = document.getElementById('vlanONU').value.trim();
   const tipoDeServico = document.getElementById('tipoDeServico').value.trim();
   const tecnicoExterno = document.getElementById('instalador').value.trim();
   const tecnicoInterno = document.getElementById('suporte').value.trim();
-  const vlan = document.getElementById('vlanONU').value.trim();
 
   // Utilizei o .trim() para remover os espaços no final do campo, para isso não gerar erro
   // quando for gerar o scrip para inserir na OLT
@@ -291,7 +292,12 @@ function criaScriptBridge (e) {
   const resultado = string.substr(0,metade)+":"+string.substr(metade);
   document.getElementById('serialNumber').innerHTML = resultado;
 
-const scriptProvisionamento = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version auto
+  
+  const NokiaComWifi = document.getElementById('NokiaWifi').value.trim();
+  const NokiaComLan = document.getElementById('NokiaLan').value.trim();
+
+  if(modeloONU === NokiaComLan) {
+const provisionamentoBridgeLan = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version auto
 configure equipment ont interface ${posicionamentoOLT} admin-state up
 configure equipment ont slot ${posicionamentoOLT}/1 planned-card-type ethernet plndnumdataports 1 plndnumvoiceports 0
 configure equipment ont slot ${posicionamentoOLT}/1 admin-state up
@@ -303,10 +309,28 @@ configure bridge port ${posicionamentoOLT}/1/1 vlan-id ${vlan}
 configure bridge port ${posicionamentoOLT}/1/1 pvid ${vlan}
 exit all \n`
 );
-document.getElementById('scriptOLT').value = scriptProvisionamento;
-e.preventDefault();
-copiarTexto();
-console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+    document.getElementById('scriptOLT').value = provisionamentoBridgeLan;
+    e.preventDefault();
+    copiarTexto();
+    console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+  }
+  else {
+const provisionamentoBridgeWifi = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto esc1 "${parsedNome}" desc2 "${parsedEndereco}"sernum ${resultado} sw-dnload-version auto pland-cfgfile1 auto dnload-cfgfile1 auto plnd-var BRIDGE
+configure equipment ont interface ${posicionamentoOLT} admin-state up
+configure equipment ont slot ${posicionamentoOLT}/1 planned-card-type ethernet plndnumdataports 1 plndnumvoiceports 0 admin-state up
+configure qos interface ${posicionamentoOLT}/1/1 upstream-queue 0 bandwidth-profile name:HSI_1G_UP 
+configure qos interface ${posicionamentoOLT}/1/1 queue 0 shaper-profile name:HSI_1G_DOWN
+configure interface port uni:${posicionamentoOLT}/1/1 admin-up
+configure bridge port ${posicionamentoOLT}/1/1 max-unicast-mac 64
+configure bridge port ${posicionamentoOLT}/1/1 vlan-id ${vlan}
+configure bridge port ${posicionamentoOLT}/1/1 pvid ${vlan}
+exit all \n`
+);
+    document.getElementById('scriptOLT').value = provisionamentoBridgeWifi;
+    e.preventDefault();
+    copiarTexto();
+    console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
+  }
 };// FINAL function criaScriptProvisionamento
 
 //-------------------- PROVISIONAMENTO TELEFONIA --------------------//
