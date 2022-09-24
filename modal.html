@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="language" content="pt-BR">
+
+  <title>Provisionamento FTTH Naxos Telecom</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- meta tags seo -->
+  <meta name="description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
+  <meta name="robots" content="">
+  <meta name="author" content="Jean Carlos">
+  <meta name="keywords" content="naxos, telecom, internet, fibra, velocidade, ativação, ftth, gpon, nokia, onu, ont, optica">
+  <!-- property og: -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jeancarloshs.github.io/provisionamento/">
+  <meta property="og:title" content="">
+  <meta property="og:image" content="https://jeancarloshs.github.io/provisionamento/img/naxos_telecom_logo.png">
+  <meta property="og:description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
+
+  <meta property="article:author" content="Jean Carlos">
+  <!-- final meta tags seo -->
+
+  <!-- inicio estilos css -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="grid-4">
+        <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
+      </a>
+      <nav class="grid-12 header_menu">
+        <ul>
+          <li><a href="listaTB.html">Lista</a></li>
+          <li><a href="relatorios.html">Relatorios</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="telefonia.html">Telefonia</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="grid-6 formulario">
+  
+      <form id="formInformacoes" method="POST" class="formFormulario formValidation">
+  
+        <label for="nome"></label>
+        <input type="text" id="nome" name="nome" placeholder="Nome" data-rules="required|min=3">
+  
+        <label for="endereco"></label>
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço" data-rules="required">
+  
+        <label for="patrimonio"></label>
+        <input type="text" name="patrimonio" id="patrimonio" placeholder="Patrimonio" data-rules="required">
+  
+        <label for="serialNumber"></label>
+        <input type="text" name="serialNumber" id="serialNumber" placeholder="S/N" data-rules="required|min=4">
+  
+        <label for="posicionamento"></label>
+        <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" data-rules="required|min=9|remover">
+  
+        <label for="tipoDeServico" class="selectLabel"></label>
+        <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select" data-rules="required">
+          <option value="" select>Tipo</option>
+          <option value="Instalação">Instalação</option>
+          <option value="Manobra de Pon">Manobra de Pon</option>
+          <option value="Mudança de Endereço">Mudança de Endereço</option>
+          <option value="Troca de Equipamento">Troca de Equipamento</option>
+        </select>
+  
+        <label for="instalador" class="selectLabel"></label>
+        <select name="instalador" id="instalador" class="grid-3 instalador select" data-rules="required">
+          <option value="" select>Instalador</option>
+          <option value="Edson Veiga">Edson Veiga</option>
+          <option value="Massilio">Massilio</option>
+          <option value="Redes">Redes</option>
+          <option value="Vinicius Michetti">Vinicius Michetti</option>
+          <option value="Vinicius Pascoali">Vinicius Pascoali</option>
+          <option value="Willians">Willians</option>
+        </select>
+  
+        <label for="suporte" class="selectLabel"></label>
+        <select name="suporte" id="suporte" class="grid-3 suporte select" data-rules="required">
+          <option value="" select>Suporte</option>
+          <option value="Ana Clara">Ana Clara</option>
+          <option value="Caio">Caio</option>
+          <option value="Heber">Heber</option>
+          <option value="Jean">Jean</option>
+          <option value="Luis">Luis</option>
+        </select>
+  
+        <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Provisionar</button>
+        <button type="submit" id="btnRemover" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptRemover(event)">Remover</button>
+        <br />
+        <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="criaScriptPesquisaMac(event)">Mac</button>
+        <button type="submit" id="btnLocalizar" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptLocalizar(event)">Localizar</button>
+  
+      </form>
+  
+    </div>
+  
+    <div class="grid-12 codigoGerado">
+      <label for="scriptOLT"><h2>Script</h2></label>
+      <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
+      <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Limpar Dados</button>
+      <button type="submit" id="btnEnviaPlanilha" name="btnEnviaPlanilha" class="btn BtnCopiar btnAcoes" onclick="enviaPlanilha()">Enviar p/ Planilha</button>
+      <button type="submit" id="btnCopiar" name="btnCopiar" class="btn BtnCopiar btnAcoes" onclick="copiarTexto()">Copiar</button>
+    </div>
+  
+  </section>
+
+  <div id="fade" class="hide"></div>
+  <div id="modal" class="hide">
+    <div class="modal-header">
+      <h2 class="modal-h2">Enviado para Planilha</h2>
+      <button id="close-modal">Fechar</button>
+    </div>
+    <div class="modal-body">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, quam?
+        Quas accusantium id cupiditate iste veritatis repudiandae odio dolore
+        voluptas. Eum, deserunt quod. Sit similique laudantium assumenda
+        repellat vel necessitatibus.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="container">
+        <div class="copy">
+          <p class="grid-12">Naxos Telecom 2022 - Alguns direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="./js/sheetDB.js"></script>
+<script src="./js/function.js"></script>
+<script src="./js/modal.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js" type="module"></script>
+
+</body>
+</html>

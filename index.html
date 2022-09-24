@@ -30,13 +30,14 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/modal.css">
+  
   <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   
 </head>
 <body>
 
-  <header class="header">
+<header class="header">
     <div class="container">
       <a href="index.html" class="grid-4">
         <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
@@ -132,8 +133,24 @@
   </div>
 </footer>
 
+<div id="fade" class="hide"></div>
+<div id="modal" class="hide">
+  <div class="modal-header">
+    <h2 class="modal-h2">Concluido!!!</h2>
+    <button id="close-modal">Fechar</button>
+  </div>
+  <div class="modal-body">
+    <p>
+      As informaões foram enviadas para a Planilha com Sucesso!!
+    </p>
+  </div>
+</div>
+
+<script src="./js/Header/Header.js"></script>
+<script src="./js/Footer/Footer.js"></script>
 <script src="./js/sheetDB.js"></script>
 <script src="./js/function.js"></script>
+<script src="./js/modal.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 
