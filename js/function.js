@@ -253,7 +253,7 @@ function enviaPlanilha() {
   const tecnicoInterno = document.getElementById('suporte').value;
   salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno);
   salvaDB();
-  alert("Informações enviadas para Planilha!!");
+  //alert("Informações enviadas para Planilha!!");
 };// FINAL function enviaPlanilha
 
 function apagaForm() {  
