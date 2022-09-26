@@ -1,4 +1,4 @@
-function apagaLogin() {  
+function apagaLogin(e) {  
 	document.getElementById('formFormulario').reset();
-	document.getElementById('scriptOLT').value = "";
+  e.preventDefault();
 };// FINAL function apagaForm
