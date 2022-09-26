@@ -257,7 +257,7 @@ function enviaPlanilha() {
 };// FINAL function enviaPlanilha
 
 function apagaForm() {  
-	document.getElementById('formInformacoes').reset();
+	document.getElementById('formInformacoes', 'formFormulario').reset();
 	document.getElementById('scriptOLT').value = "";
 };// FINAL function apagaForm
 
