@@ -52,12 +52,12 @@
     <form id="formFormulario" method="POST" class="formFormulario">
 
       <label for="email"></label>
-      <input type="email" id="email" name="email" placeholder="Email" data-rules="required|min=3">
+      <input type="email" id="email" name="email" placeholder="Email" class="inputLogin" data-rules="required|min=3">
 
       <label for="password"></label>
-      <input type="password" name="password" id="password" placeholder="Senha" data-rules="required">
+      <input type="password" name="password" id="password" placeholder="Senha" class="inputLogin" data-rules="required">
 
-      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Login</button>
+      <button type="submit" id="btnLogin" name="btnLogin" class="btn btnLogin">Login</button>
       <button type="submit" id="btnLimpaLogin" name="btnLimpaLogin" class="btn BtnCopiar btnAcoes" onclick="apagaLogin(event)">Limpar</button>
       <br />
 

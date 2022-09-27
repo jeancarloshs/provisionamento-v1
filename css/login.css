@@ -5,7 +5,15 @@
 .box {
   padding-top: 10%;
   border-radius: 1.4%;
+  box-shadow: 0 0 30px rgb(41, 22, 101);
   background: linear-gradient(130deg, rgba(208,229,255,0.01) 0%, rgba(143,151,255,0.07) 35%, rgba(67,109,255,0.19) 100%);
+}
+
+.inputLogin {
+  margin-top: 10px;
+  width: 90%;
+  height: 30px;
+  padding-left: 5%;
 }
 
 .formFormulario {
