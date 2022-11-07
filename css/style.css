@@ -163,12 +163,24 @@ input::-webkit-inner-spin-button {
   width: 580px;
 }
 
-.dadosTable {
-  overflow: hidden;
-  height: 500px;
+.infoPDF ul li {
+  margin-bottom: 15px;
+  padding: 0 10px;
 }
 
-#myChart{
+.infoPDF ul li a {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.infoPDF ul li a:hover {
+  /* color: #501cd3; */
+  color: #080705;
+}
+
+#myChart {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

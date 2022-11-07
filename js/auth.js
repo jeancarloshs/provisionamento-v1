@@ -1,3 +1,5 @@
+require('dotenv').config()
+console.log('process.env ', process.env)
 
 const btnLogin = document.getElementById('btnLogin');
 
@@ -8,11 +10,11 @@ btnLogin.addEventListener('click',()=>{
 
   const { createClient } = supabase;
 
-  const _supabase = createClient("https://hbnnejxzvuzwlmtekpos.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g");
+  const _supabase = createClient(process.env.URL_SUPABASE, process.env.SUPABASE_API_KEY);
 
   (() => { 
-    let { user, error } = _supabase.auth.signInWithOtp({
-      email: login,
+    let { user, error } = _supabase.auth.signIn({
+      email: login
     })
 
       if (error) {
@@ -25,6 +27,8 @@ btnLogin.addEventListener('click',()=>{
         window.location.assign("https://www.w3schools.com")
         console.log('login ', user)
   });
+  const session = _supabase.auth.session()
+  console.log('session: ', session)
 })
 
 
