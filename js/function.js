@@ -19,7 +19,6 @@ window.addEventListener("beforeunload", function(event) {
 
 function salvaDB() {
   const nome = document.getElementById('nome').value;
-  const endereco = document.getElementById('endereco').value;
   const patrimonio = document.getElementById('patrimonio').value;
   const serialNumber = document.getElementById('serialNumber').value;
   const posicionamentoOLT = document.getElementById('posicionamento').value;
