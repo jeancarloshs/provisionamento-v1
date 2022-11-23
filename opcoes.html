@@ -31,20 +31,19 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  
 </head>
 <body>
 
   <header class="header">
     <div class="container">
-      <a href="index.html" class="grid-4">
+      <a href="provisionamento.html" class="grid-4">
         <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
       </a>
       <nav class="grid-12 header_menu">
         <ul>
           <li><a href="ajuda.html">Ajuda</a></li>
-          <li><a href="relatorios.html" class="menu_ativo">Relatorios</a></li>
+          <li><a href="opcoes.html" class="menu_ativo">Opções</a></li>
           <li><a href="bridge.html">Bridge</a></li>
           <li><a href="telefonia.html">Telefonia</a></li>
         </ul>
@@ -52,12 +51,20 @@
     </div>
   </header> <!-- header -->
 
-  <!-- <div>
-    <canvas id="myChart"></canvas>
-  </div> -->
-  <div id="chart" class="container">
-    <div id="timeline-chart"></div>
+  <div class="container infoPDF">
+    <ul>
+      <li>
+        <a href="cadastro.html">
+          <p>Cadastrar UsuarioS</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <p>Alterar URL da Planilha</p>
+        </a>
+      </li>
   </div>
+
 
 <footer>
   <div class="footer">
@@ -69,6 +76,7 @@
   </div>
 </footer>
 
+<script src="./js/Cadastro/Cadastro.js"></script>
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 <script src="./js/app.js"></script>
 

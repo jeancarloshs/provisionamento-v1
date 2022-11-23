@@ -11,8 +11,6 @@ const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 // FUNÇÃO PARA ABRIR ALERTA ANTES DE SAIR DA PAGINA
 window.addEventListener("beforeunload", function(event) { 
   event.preventDefault();
-
-
   event.returnValue = "Mensagem de aviso"; 
   return "Mensagem de aviso";
 });
@@ -241,8 +239,8 @@ function copiarTexto() {
   navigator.clipboard.writeText(textoCopiado.value);
 };// FINAL function copiarTexto
 
-
 function enviaPlanilha() {
+  const { salvar } = require("./sheetDB");
   const nome = document.getElementById('nome').value;
   const patrimonio = document.getElementById('patrimonio').value;
   const serialNumber = document.getElementById('serialNumber').value;
