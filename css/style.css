@@ -87,6 +87,10 @@ h2 {
   color: #fff;
 }
 
+.addMenuOpcoes {
+  display: inline-block;
+}
+
 .formulario {
   margin-bottom: 3%;
   color: white;
