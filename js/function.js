@@ -50,6 +50,13 @@ if (verificaUsuario == 'true') {
 }
 //console.log('validando',verificaUsuario)
 
+window.onbeforeunload = function() {
+  sessionStorage.removeItem("Token Authentication");
+  sessionStorage.removeItem("isAdmin");
+  return '';
+  
+};
+
 //-------------------- BOTÕES --------------------//
 const botaoProvisionar = document.getElementById('btnProvisionar');
 const botaoRemover = document.getElementById('btnRemover');
@@ -61,11 +68,11 @@ const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 
 // FUNÇÃO PARA ABRIR ALERTA ANTES DE SAIR DA PAGINA
-window.addEventListener("beforeunload", function(event) { 
-  event.preventDefault();
-  event.returnValue = "Mensagem de aviso"; 
-  return "Mensagem de aviso";
-});
+// window.addEventListener("beforeunload", function(event) { 
+//   event.preventDefault();
+//   event.returnValue = "Mensagem de aviso"; 
+//   return "Mensagem de aviso";
+// });
 
 function salvaDB() {
   const nome = document.getElementById('nome').value;
