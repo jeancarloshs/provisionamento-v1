@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="language" content="pt-BR">
+
+  <title>Provisionamento FTTH Naxos Telecom</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- meta tags seo -->
+  <meta name="description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
+  <meta name="robots" content="">
+  <meta name="author" content="Jean Carlos">
+  <meta name="keywords" content="naxos, telecom, internet, fibra, velocidade, ativação, ftth, gpon, nokia, onu, ont, optica">
+  <!-- property og: -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jeancarloshs.github.io/provisionamento/">
+  <meta property="og:title" content="">
+  <meta property="og:image" content="https://jeancarloshs.github.io/provisionamento/img/naxos_telecom_logo.png">
+  <meta property="og:description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na redes FTTH na OLT Nokia utilizando ONU/ONT">
+
+  <meta property="article:author" content="Jean Carlos">
+  <!-- final meta tags seo -->
+
+  <!-- inicio estilos css -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/modal.css">
+
+  <script src="./js/validation.js"></script>
+  
+</head>
+<body>
+
+<header-menu></header-menu>
+
+<section class="container">
+  <div class="grid-6 formLogin box">
+
+    <form id="formFormulario" method="POST" class="formFormulario">
+      <h2>Cadastro</h2>
+
+      <label for="name"></label>
+      <input type="name" id="name" name="name" placeholder="Nome" class="inputName" data-rules="required|min=3">
+
+      <label for="tipoDeCargo" class="selectLabel"></label>
+      <select name="tipoDeCargo" id="tipoDeCargo" class="grid-3 tipoDeCargo select" data-rules="required">
+        <option value="" select>Cargo</option>
+        <option value="Instalador">Instalador</option>
+        <option value="Suporte">Suporte</option>
+      </select>
+
+      <label for="permissaoDeADMIN" class="selectLabel"></label>
+      <select name="permissaoDeADMIN" id="permissaoDeADMIN" class="grid-3 permissaoDeADMIN select" data-rules="required">
+        <option value="" select>Permissões</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Usuario">Usuario</option>
+      </select>
+
+      <label for="email"></label>
+      <input type="email" id="email" name="email" placeholder="Email" class="inputEmail" data-rules="required|min=3">
+
+      <label for="password"></label>
+      <input type="password" id="senhaUsuario" name="password" placeholder="Senha" class="inputPWD" data-rules="required|min=1">
+
+      <!-- <label for="confirmePWD"></label>
+      <input type="text" id="confirmePWD" name="confirmePWD" placeholder="Confirme a senha" class="inputPWD" data-rules="required|min=1"> -->
+
+      
+    </form>
+    <button type="submit" id="btnLogin" name="btnLogin" class="btn btnLogin inputLogin" onclick="salvaCadastro()">Cadastrar</button>
+    <button type="submit" id="btnLimpaLogin" name="btnLimpaLogin" class="btn BtnCopiar btnAcoes inputLogin" onclick="apagaForm(event)">Limpar</button>
+    <br />
+
+  </div>
+
+</section>
+
+
+<rodape-footer></rodape-footer>
+
+<script src="./js/Header/Header.js"></script>
+<script src="./js/Footer/Footer.js"></script>
+<script src="./js/registration.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
+
+</body>
+</html>

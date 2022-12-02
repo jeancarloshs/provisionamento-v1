@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="60"> atualiza a pagina a cada 60 segundos -->
   <meta name="language" content="pt-BR">
 
   <title>Provisionamento FTTH Naxos Telecom</title>
@@ -20,7 +21,7 @@
   <meta property="og:url" content="https://jeancarloshs.github.io/provisionamento/">
   <meta property="og:title" content="">
   <meta property="og:image" content="https://jeancarloshs.github.io/provisionamento/img/naxos_telecom_logo.png">
-  <meta property="og:description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na redes FTTH na OLT Nokia utilizando ONU/ONT">
+  <meta property="og:description" content="ágina voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
 
   <meta property="article:author" content="Jean Carlos">
   <!-- final meta tags seo -->
@@ -30,43 +31,42 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/modal.css">
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+  <script src="./js/validation.js"></script>
   
 </head>
 <body>
 
   <header class="header">
     <div class="container">
-      <a href="#" class="grid-4">
+      <a href="provisionamento.html" class="grid-4">
         <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
       </a>
+      <nav class="grid-12 header_menu">
+        <ul>
+          <li><a href="ajuda.html">Ajuda</a></li>
+          <li><a href="opcoes.html" class="menu_ativo addMenuOpcoes" id="addMenuOpcoes">Opções</a></li>
+          <li><a href="bridge.html">Bridge</a></li>
+          <li><a href="telefonia.html">Telefonia</a></li>
+        </ul>
+      </nav>
     </div>
   </header> <!-- header -->
 
-<section class="container">
-  <div class="grid-6 formLogin box">
-
-    <form id="formFormulario" method="POST" class="formFormulario">
-
-      <label for="email"></label>
-      <input type="email" id="email" name="email" placeholder="Email" class="inputLogin" data-rules="required|min=3">
-
-      <label for="password"></label>
-      <input type="password" name="password" id="password" placeholder="Senha" class="inputLogin" data-rules="required">
-
-      <button type="submit" id="btnLogin" name="btnLogin" class="btn btnLogin">Login</button>
-      <button type="submit" id="btnLimpaLogin" name="btnLimpaLogin" class="btn BtnCopiar btnAcoes" onclick="apagaLogin(event)">Limpar</button>
-      <br />
-
-    </form>
-
+  <div class="container infoPDF">
+    <ul>
+      <li>
+        <a href="cadastro.html">
+          <p>Cadastrar UsuarioS</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <p>Alterar URL da Planilha</p>
+        </a>
+      </li>
   </div>
 
-
-</section>
 
 <footer>
   <div class="footer">
@@ -78,11 +78,9 @@
   </div>
 </footer>
 
-<script src="./js/Header/Header.js"></script>
-<script src="./js/Footer/Footer.js"></script>
-<script src="./js/auth.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
-<!-- <script src="https://unpkg.com/@supabase/supabase-js"></script> -->
+<script src="./js/Cadastro/Cadastro.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
+<script src="./js/app.js"></script>
 
 </body>
 </html>

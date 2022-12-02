@@ -1,3 +1,62 @@
+const { text } = require("express");
+
+let verificaUsuario = sessionStorage.getItem('isAdmin',);
+let addMenu = document.getElementsByClassName('addMenuOpcoes');
+
+async () => {
+  try {
+    let headersList = {
+      "Accept": "*/*",
+      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+      "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g"
+     }
+     
+     let response = await fetch("https://hbnnejxzvuzwlmtekpos.supabase.co/rest/v1/tbUsuarios?select=permissaoDoColaborador", { 
+       method: "GET",
+       headers: headersList,
+     });
+     
+     let data = await response.json();
+     let dataJson = data
+     //console.log(dataJson);
+
+     let arrayDataJson = dataJson
+
+    //   arrayDataJson.forEach((email, index, array) => {
+    //     let userAdmin = arrayDataJson[index].permissaoDoColaborador;
+    //         if (userAdmin === 'Administrador') {
+              
+    //           console.log('if')
+    //         } else {
+              
+    //           console.log('else')
+    //         }
+    //       console.log('userAdmin',userAdmin)        
+    // })
+
+    //newArray = arrayDataJson
+
+  } catch (error) {
+    console.log('error: ',error)
+    }
+
+}
+
+if (verificaUsuario == 'true') {
+  console.log('admin logado')
+} else {
+  console.log('User')
+}
+//console.log('validando',verificaUsuario)
+
+window.onbeforeunload = function() {
+  sessionStorage.removeItem("Token Authentication");
+  sessionStorage.removeItem("isAdmin");
+  return '';
+  
+};
+
 //-------------------- BOTÕES --------------------//
 const botaoProvisionar = document.getElementById('btnProvisionar');
 const botaoRemover = document.getElementById('btnRemover');
@@ -9,13 +68,11 @@ const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 
 // FUNÇÃO PARA ABRIR ALERTA ANTES DE SAIR DA PAGINA
-window.addEventListener("beforeunload", function(event) { 
-  event.preventDefault();
-
-
-  event.returnValue = "Mensagem de aviso"; 
-  return "Mensagem de aviso";
-});
+// window.addEventListener("beforeunload", function(event) { 
+//   event.preventDefault();
+//   event.returnValue = "Mensagem de aviso"; 
+//   return "Mensagem de aviso";
+// });
 
 function salvaDB() {
   const nome = document.getElementById('nome').value;
@@ -241,8 +298,8 @@ function copiarTexto() {
   navigator.clipboard.writeText(textoCopiado.value);
 };// FINAL function copiarTexto
 
-
 function enviaPlanilha() {
+  const { salvar } = require("./sheetDB");
   const nome = document.getElementById('nome').value;
   const patrimonio = document.getElementById('patrimonio').value;
   const serialNumber = document.getElementById('serialNumber').value;

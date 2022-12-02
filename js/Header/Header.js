@@ -6,13 +6,13 @@ class Header extends HTMLElement {
       this.innerHTML = `
       <header class="header">
       <div class="container">
-        <a href="index.html" class="grid-4">
+        <a href="provisionamento.html" class="grid-4">
           <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
         </a>
         <nav class="grid-12 header_menu">
           <ul>
             <li><a href="ajuda.html">Ajuda</a></li>
-            <li><a href="relatorios.html">Relatorios</a></li>
+            <li><a href="opcoes.html" class="addMenuOpcoes">Opções</a></li>
             <li><a href="bridge.html">Bridge</a></li>
             <li><a href="telefonia.html">Telefonia</a></li>
           </ul>
@@ -31,4 +31,4 @@ class Header extends HTMLElement {
 
 }
 
-customElements.define('index-teste', Header);
+customElements.define('header-menu', Header);

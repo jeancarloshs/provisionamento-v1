@@ -1,7 +1,8 @@
 var axios = require("axios");
+var dotenv = require("dotenv");
 
 function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno){
-    axios.post('https://sheetdb.io/api/v1/f8t5fv0yuh1xs',{
+    axios.post(process.env.URL_SHEETS_DB,{
         "data": {
             "CLIENTES": nome,
             "TÉCNICO 1": tecnicoExterno,

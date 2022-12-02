@@ -38,7 +38,7 @@
 </head>
 <body>
 
-  <header class="header">
+<header class="header">
     <div class="container">
       <a href="provisionamento.html" class="grid-4">
         <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
@@ -46,8 +46,8 @@
       <nav class="grid-12 header_menu">
         <ul>
           <li><a href="ajuda.html">Ajuda</a></li>
-          <!-- <li><a href="opcoes.html" class="addMenuOpcoes">Opções</a></li> -->
-          <li><a href="bridge.html" class="menu_ativo">Bridge</a></li>
+          <!-- <li><a href="opcoes.html" class="addMenuOpcoes" id="addMenuOpcoes">Opções</a></li> -->
+          <li><a href="bridge.html">Bridge</a></li>
           <li><a href="telefonia.html">Telefonia</a></li>
         </ul>
       </nav>
@@ -73,16 +73,6 @@
 
       <label for="posicionamento"></label>
       <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" data-rules="required|min=9|remover">
-
-      <label for="vlanONU"></label>
-      <input type="text" name="vlanONU" id="vlanONU" placeholder="Vlan" data-rules="required">
-
-      <label for="modelONU" class="selectLabel"></label>
-      <select name="modelONU" id="modelONU" class="grid-3 modelONU select" data-rules="required">
-        <option value="" select>Onu</option>
-        <option value="Nokia G-240WF" id="NokiaWifi">Nokia G-240WF</option>
-        <option value="Nokia G-010G-P" id="NokiaLan">Nokia G-010G-P</option>
-      </select>
 
       <label for="tipoDeServico" class="selectLabel"></label>
       <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select" data-rules="required">
@@ -115,7 +105,7 @@
         <option value="Luis">Luis</option>
       </select>
 
-      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="checkBridge(event)">Provisionar</button>
+      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Provisionar</button>
       <button type="submit" id="btnRemover" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptRemover(event)">Remover</button>
       <br />
       <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="criaScriptPesquisaMac(event)">Mac</button>
@@ -126,7 +116,7 @@
   </div>
 
   <div class="grid-12 codigoGerado">
-    <label for="scriptOLT"><h2>Script Bridge</h2></label>
+    <label for="scriptOLT"><h2>Script</h2></label>
     <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
     <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Limpar Dados</button>
     <button type="submit" id="btnEnviaPlanilha" name="btnEnviaPlanilha" class="btn BtnCopiar btnAcoes" onclick="enviaPlanilha()">Enviar p/ Planilha</button>
@@ -145,22 +135,13 @@
   </div>
 </footer>
 
-<div id="fade" class="hide"></div>
-<div id="modal" class="hide">
-  <div class="modal-header">
-    <h2 class="modal-h2">Concluido!!!</h2>
-    <button id="close-modal">Fechar</button>
-  </div>
-  <div class="modal-body">
-    <p>
-      As informações foram enviadas para a Planilha com Sucesso!!
-    </p>
-  </div>
-</div>
+<modal-alert></modal-alert>
 
-<script src="./js/sheetDB.js"></script>
-<script src="./js/function.js"></script>
+<script src="./js/Modal/Modal.js"></script>
+<script type="module" src="./js/sheetDB.js"></script>
+<script type="module" src="./js/function.js"></script>
 <script src="./js/modal.js"></script>
+<script src="./js/auth.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 

@@ -87,9 +87,17 @@ h2 {
   color: #fff;
 }
 
+.addMenuOpcoes {
+  display: inline-block;
+}
+
 .formulario {
   margin-bottom: 3%;
   color: white;
+}
+
+.formFormulario option {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .formFormulario label {
@@ -130,10 +138,6 @@ input[type='number'] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-
-.formFormulario option {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .btn {

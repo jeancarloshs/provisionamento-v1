@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/modal.css">
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
@@ -37,92 +38,38 @@
 </head>
 <body>
 
-<header class="header">
+  <header class="header">
     <div class="container">
-      <a href="index.html" class="grid-4">
+      <a href="#" class="grid-4">
         <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
       </a>
-      <nav class="grid-12 header_menu">
-        <ul>
-          <li><a href="ajuda.html">Ajuda</a></li>
-          <li><a href="relatorios.html">Relatorios</a></li>
-          <li><a href="bridge.html">Bridge</a></li>
-          <li><a href="telefonia.html">Telefonia</a></li>
-        </ul>
-      </nav>
     </div>
   </header> <!-- header -->
 
-<section class="container">
-  <div class="grid-6 formulario">
-
-    <form id="formInformacoes" method="POST" class="formFormulario formValidation">
-
-      <label for="nome"></label>
-      <input type="text" id="nome" name="nome" placeholder="Nome" data-rules="required|min=3">
-
-      <label for="endereco"></label>
-      <input type="text" name="endereco" id="endereco" placeholder="Endereço" data-rules="required">
-
-      <label for="patrimonio"></label>
-      <input type="text" name="patrimonio" id="patrimonio" placeholder="Patrimonio" data-rules="required">
-
-      <label for="serialNumber"></label>
-      <input type="text" name="serialNumber" id="serialNumber" placeholder="S/N" data-rules="required|min=4">
-
-      <label for="posicionamento"></label>
-      <input type="text" name="posicionamento" id="posicionamento" placeholder="Posicionamento" data-rules="required|min=9|remover">
-
-      <label for="tipoDeServico" class="selectLabel"></label>
-      <select name="tipoDeServico" id="tipoDeServico" class="grid-3 tipoDeServico select" data-rules="required">
-        <option value="" select>Tipo</option>
-        <option value="Instalação">Instalação</option>
-        <option value="Manobra de Pon">Manobra de Pon</option>
-        <option value="Mudança de Endereço">Mudança de Endereço</option>
-        <option value="Troca de Equipamento">Troca de Equipamento</option>
-      </select>
-
-      <label for="instalador" class="selectLabel"></label>
-      <select name="instalador" id="instalador" class="grid-3 instalador select" data-rules="required">
-        <option value="" select>Instalador</option>
-        <option value="Bruno">Bruno</option>
-        <option value="Edson Veiga">Edson Veiga</option>
-        <option value="Massilio">Massilio</option>
-        <option value="Redes">Redes</option>
-        <option value="Vinicius Michetti">Vinicius Michetti</option>
-        <option value="Vinicius Pascoali">Vinicius Pascoali</option>
-        <option value="Willians">Willians</option>
-      </select>
-
-      <label for="suporte" class="selectLabel"></label>
-      <select name="suporte" id="suporte" class="grid-3 suporte select" data-rules="required">
-        <option value="" select>Suporte</option>
-        <option value="Ana Clara">Ana Clara</option>
-        <option value="Caio">Caio</option>
-        <option value="Heber">Heber</option>
-        <option value="Jean">Jean</option>
-        <option value="Luis">Luis</option>
-      </select>
-
-      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Provisionar</button>
-      <button type="submit" id="btnRemover" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptRemover(event)">Remover</button>
+  <section class="container">
+    <div class="grid-6 formLogin box">
+  
+      <form id="formFormulario" method="POST" class="formFormulario">
+        <h2>Login</h2>
+    
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Email" class="inputEmail" data-rules="required|min=3">
+  
+        <label for="password"></label>
+        <input type="password" id="senhaUsuario" name="password" placeholder="Senha" class="inputPWD" data-rules="required|min=8">
+  
+        <!-- <label for="confirmePWD"></label>
+        <input type="text" id="confirmePWD" name="confirmePWD" placeholder="Confirme a senha" class="inputPWD" data-rules="required|min=1"> -->
+  
+        
+      </form>
+      <button type="submit" id="btnLogin" name="btnLogin" class="btn btnLogin inputLogin" onclick="fazLogin()">Login</button>
+      <button type="submit" id="btnLimpaLogin" name="btnLimpaLogin" class="btn BtnCopiar btnAcoes inputLogin" onclick="apagaLogin(event)">Limpar</button>
       <br />
-      <button type="submit" id="btnMac" name="btnMac" class="btn btnProvisionar" onclick="criaScriptPesquisaMac(event)">Mac</button>
-      <button type="submit" id="btnLocalizar" name="btnProvisionar" class="btn btnProvisionar btnDireita" onclick="criaScriptLocalizar(event)">Localizar</button>
-
-    </form>
-
-  </div>
-
-  <div class="grid-12 codigoGerado">
-    <label for="scriptOLT"><h2>Script</h2></label>
-    <textarea name="scriptOLT" id="scriptOLT" cols="30" rows="10" readonly></textarea>
-    <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Limpar Dados</button>
-    <button type="submit" id="btnEnviaPlanilha" name="btnEnviaPlanilha" class="btn BtnCopiar btnAcoes" onclick="enviaPlanilha()">Enviar p/ Planilha</button>
-    <button type="submit" id="btnCopiar" name="btnCopiar" class="btn BtnCopiar btnAcoes" onclick="copiarTexto()">Copiar</button>
-  </div>
-
-</section>
+  
+    </div>
+  
+  </section>
 
 <footer>
   <div class="footer">
@@ -134,25 +81,11 @@
   </div>
 </footer>
 
-<div id="fade" class="hide"></div>
-<div id="modal" class="hide">
-  <div class="modal-header">
-    <h2 class="modal-h2">Concluido!!!</h2>
-    <button id="close-modal">Fechar</button>
-  </div>
-  <div class="modal-body">
-    <p>
-      As informações foram enviadas para a Planilha com Sucesso!!
-    </p>
-  </div>
-</div>
-
-
-<script src="./js/function.js"></script>
-<script src="./js/sheetDB.js"></script>
-<script src="./js/modal.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
+<script src="./js/Header/Header.js"></script>
+<script src="./js/Footer/Footer.js"></script>
+<script src="./js/auth.js"></script>
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js" type="module"></script> -->
 
 </body>
 </html>
