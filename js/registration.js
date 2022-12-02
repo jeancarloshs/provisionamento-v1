@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 function salvaDB() {
     const nome = document.getElementById('name').value;
     const cargo = document.getElementById('tipoDeCargo').value;
@@ -46,6 +44,7 @@ function salvaDB() {
 };// FINAL function salvaDB
 
 function salvaCadastro(){
+    const nome = document.getElementById('name').value;
     const cargoAdmin = document.getElementById('permissaoDeADMIN').value
     const booleanCargoAdmin = cargoAdmin != 0
     if (cargoAdmin == "") {
@@ -54,12 +53,18 @@ function salvaCadastro(){
     } else if (cargoAdmin == 1) {
       //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
       salvaDB();
+      alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
       return cargoAdmin
     } else {
       //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
       salvaDB();
+      alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
       return booleanCargoAdmin
     }
     alert("Usuario Cadastrado com Sucesso!!!")
     //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
 }
+
+function apagaForm() {  
+	document.getElementById('formFormulario').reset();
+};// FINAL function apagaForm
