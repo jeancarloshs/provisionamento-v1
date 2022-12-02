@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+require('dotenv').config();
+
+>>>>>>> Stashed changes
 function salvaDB() {
     const nome = document.getElementById('name').value;
     const cargo = document.getElementById('tipoDeCargo').value;
@@ -44,7 +49,10 @@ function salvaDB() {
 };// FINAL function salvaDB
 
 function salvaCadastro(){
+<<<<<<< Updated upstream
     const nome = document.getElementById('name').value;
+=======
+>>>>>>> Stashed changes
     const cargoAdmin = document.getElementById('permissaoDeADMIN').value
     const booleanCargoAdmin = cargoAdmin != 0
     if (cargoAdmin == "") {
@@ -53,18 +61,28 @@ function salvaCadastro(){
     } else if (cargoAdmin == 1) {
       //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
       salvaDB();
+<<<<<<< Updated upstream
       alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
+=======
+>>>>>>> Stashed changes
       return cargoAdmin
     } else {
       //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
       salvaDB();
+<<<<<<< Updated upstream
       alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
+=======
+>>>>>>> Stashed changes
       return booleanCargoAdmin
     }
     alert("Usuario Cadastrado com Sucesso!!!")
     //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
+<<<<<<< Updated upstream
 }
 
 function apagaForm() {  
 	document.getElementById('formFormulario').reset();
 };// FINAL function apagaForm
+=======
+}
+>>>>>>> Stashed changes
