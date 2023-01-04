@@ -1,5 +1,3 @@
-const { text } = require("express");
-
 let verificaUsuario = sessionStorage.getItem('isAdmin',);
 let addMenu = document.getElementsByClassName('addMenuOpcoes');
 
@@ -162,7 +160,6 @@ document.getElementById('scriptOLT').value = scriptProvisionamento;
 e.preventDefault();
 copiarTexto();
 console.log("PlanInfo", [parsedNome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno]);
-
 };// FINAL function criaScriptProvisionamento
   
 // VALIDADOR DE FORMULARIO
