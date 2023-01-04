@@ -299,7 +299,6 @@ function copiarTexto() {
 };// FINAL function copiarTexto
 
 function enviaPlanilha() {
-  const { salvar } = require("./sheetDB");
   const nome = document.getElementById('nome').value;
   const patrimonio = document.getElementById('patrimonio').value;
   const serialNumber = document.getElementById('serialNumber').value;
