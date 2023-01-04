@@ -68,19 +68,11 @@ const botaoLimpaInputs = document.getElementById('btnLimpaInputs');
 
 
 // FUNÇÃO PARA ABRIR ALERTA ANTES DE SAIR DA PAGINA
-<<<<<<< Updated upstream
 // window.addEventListener("beforeunload", function(event) { 
 //   event.preventDefault();
 //   event.returnValue = "Mensagem de aviso"; 
 //   return "Mensagem de aviso";
 // });
-=======
-window.addEventListener("beforeunload", function(event) { 
-  event.preventDefault();
-  event.returnValue = "Mensagem de aviso"; 
-  return "Mensagem de aviso";
-});
->>>>>>> Stashed changes
 
 function salvaDB() {
   const nome = document.getElementById('nome').value;
