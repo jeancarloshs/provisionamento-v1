@@ -344,8 +344,8 @@ function criaScriptBridge (e) {
   document.getElementById('serialNumber').innerHTML = resultado;
 
   
-  const NokiaComWifi = document.getElementById('NokiaWifi').value.trim();
-  const NokiaComLan = document.getElementById('NokiaLan').value.trim();
+  const NokiaComWifi = document.getElementById('NokiaWifi').value;
+  const NokiaComLan = document.getElementById('NokiaLan').value;
 
   if(modeloONU === NokiaComLan) {
 const provisionamentoBridgeLan = (`configure equipment ont interface ${posicionamentoOLT} sw-ver-pland auto desc1 "${parsedNome}" desc2 "${parsedEndereco}" sernum ${resultado} sw-dnload-version auto
