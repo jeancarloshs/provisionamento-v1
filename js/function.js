@@ -41,11 +41,11 @@ async () => {
 
 }
 
-if (verificaUsuario == 'true') {
-  console.log('admin logado')
-} else {
-  console.log('User')
-}
+// if (verificaUsuario == 'true') {
+//   console.log('admin logado')
+// } else {
+//   console.log('User')
+// }
 //console.log('validando',verificaUsuario)
 
 // window.onbeforeunload = function() {

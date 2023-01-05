@@ -5,5 +5,5 @@ if(verificaAdmin !== 'false') {
   let newUl = document.querySelector('ul')
   let newLi = document.createElement("li")
   newUl.innerHTML = newUl.innerHTML + URL
-  console.log(newUl)
+  //console.log(newUl)
 }
