@@ -1,3 +1,16 @@
+// window.addEventListener("load", (event) => {
+//   localStorage.removeItem("TokenAuthentication");
+//   localStorage.removeItem("isAdmin");
+//   console.log("page is fully loaded");
+//   return '';
+// });
+
+// window.onbeforeunload = function() {
+//   localStorage.removeItem("TokenAuthentication");
+//   localStorage.removeItem("isAdmin");
+//   return '';
+// };
+
 function apagaLogin(e) {  
 	document.getElementById('formFormulario').reset();
   e.preventDefault();
@@ -41,9 +54,9 @@ function fazLogin(){
 const emailUsuario = document.getElementById('email').value;
 const senhaUsuario = document.getElementById('senhaUsuario').value;
 let geraToken = Math.random().toString(16).substr(2) + 16;
-const token = sessionStorage.setItem('Token Authentication', geraToken);
+const token = localStorage.setItem('TokenAuthentication', geraToken);
 let addClassAdmin = document.getElementsByClassName('addMenuOpcoes');
-//let isAdmin = sessionStorage.setItem('addMenuOpcoes', addClassAdmin);
+//let isAdmin = localStorage.setItem('addMenuOpcoes', addClassAdmin);
 
 (async () => {
   try {
@@ -76,12 +89,12 @@ let addClassAdmin = document.getElementsByClassName('addMenuOpcoes');
           token
           //window.location.assign('provisionamento.html')
             if (userAdmin == true) {
-              let isAdmin = sessionStorage.setItem('isAdmin', userAdmin);
+              let isAdmin = localStorage.setItem('isAdmin', userAdmin);
               isAdmin
               window.location.assign('provisionamento.html');
               //console.log('admin', userAdmin)
             } else {
-              let isAdmin = sessionStorage.setItem('isAdmin', userAdmin);
+              let isAdmin = localStorage.setItem('isAdmin', userAdmin);
               isAdmin
               window.location.assign('provisionamento.html');
             }

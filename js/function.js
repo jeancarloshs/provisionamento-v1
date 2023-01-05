@@ -1,4 +1,4 @@
-let verificaUsuario = sessionStorage.getItem('isAdmin',);
+let verificaUsuario = localStorage.getItem('isAdmin',);
 let addMenu = document.getElementsByClassName('addMenuOpcoes');
 
 async () => {
@@ -48,12 +48,11 @@ if (verificaUsuario == 'true') {
 }
 //console.log('validando',verificaUsuario)
 
-window.onbeforeunload = function() {
-  sessionStorage.removeItem("Token Authentication");
-  sessionStorage.removeItem("isAdmin");
-  return '';
-  
-};
+// window.onbeforeunload = function() {
+//   localStorage.removeItem("TokenAuthentication");
+//   localStorage.removeItem("isAdmin");
+//   return '';
+// };
 
 //-------------------- BOTÕES --------------------//
 const botaoProvisionar = document.getElementById('btnProvisionar');

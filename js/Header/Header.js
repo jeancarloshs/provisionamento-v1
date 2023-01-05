@@ -12,11 +12,7 @@ class Header extends HTMLElement {
         <nav class="grid-12 header_menu">
           <ul>
             <li><a href="ajuda.html">Ajuda</a></li>
-<<<<<<< Updated upstream
-            <li><a href="opcoes.html" class="addMenuOpcoes">Opções</a></li>
-=======
-            <li><a href="opcoes.html">Opções</a></li>
->>>>>>> Stashed changes
+            <!--<li><a href="opcoes.html" class="addMenuOpcoes">Opções</a></li>-->
             <li><a href="bridge.html">Bridge</a></li>
             <li><a href="telefonia.html">Telefonia</a></li>
           </ul>
