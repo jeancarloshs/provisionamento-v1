@@ -11,6 +11,17 @@
 //   return '';
 // };
 
+// const addLiMenu = () => {
+//   let verificaAdmin = localStorage.getItem('isAdmin', true);
+//   if(verificaAdmin !== 'false') {
+//     let URL = '<li><a href="opcoes.html">Opções</a></li>'
+//     let newUl = document.querySelector('ul')
+//     let newLi = document.createElement("li")
+//     newUl.innerHTML = newUl.innerHTML + URL
+//     console.log(newUl)
+//   }
+// }
+
 function apagaLogin(e) {  
 	document.getElementById('formFormulario').reset();
   e.preventDefault();
@@ -55,7 +66,10 @@ const emailUsuario = document.getElementById('email').value;
 const senhaUsuario = document.getElementById('senhaUsuario').value;
 let geraToken = Math.random().toString(16).substr(2) + 16;
 const token = localStorage.setItem('TokenAuthentication', geraToken);
-let addClassAdmin = document.getElementsByClassName('addMenuOpcoes');
+// let newUl = document.querySelector('ul');
+// let newLi = document.createElement('li');
+// newLi.innerHTML = `<a href="opcoes.html" class="addMenuOpcoes" id="addMenuOpcoes">Opções</a>`
+// newUl.appendChild(newLi)
 //let isAdmin = localStorage.setItem('addMenuOpcoes', addClassAdmin);
 
 (async () => {
