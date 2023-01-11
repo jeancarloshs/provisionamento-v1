@@ -31,6 +31,7 @@ let verificaUsuario = (async () => {
             <td>${nomeUsuario}</td>
             <td>${cargo}</td>
             <td>${permissaoDoColaborador}</td>
+            <td><button class="btnEditar" onclick="console.log('clicou em editar')"></button></td>
         </tr>`
 
 

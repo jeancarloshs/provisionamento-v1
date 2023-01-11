@@ -28,9 +28,25 @@ tr:hover {
 }
 
 .info {
-    background-color: #25377D;
+    background-color: #25377DAA;
 }
 
 .info2 {
-    background-color: rgb(117, 172, 209) !important;
+    background-color: rgba(115, 168, 204, 0.5) !important;
 }
+
+button {
+    padding: 0 !important;
+    margin: 2px auto !important;
+    background-image: url('../img/manutencao.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
+/* .img-manutencao {
+    width: 32px;
+    height: 32px;
+} */
