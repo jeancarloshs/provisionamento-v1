@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta http-equiv="refresh" content="60"> atualiza a pagina a cada 60 segundos -->
   <meta name="language" content="pt-BR">
 
   <title>Provisionamento FTTH Naxos Telecom</title>
@@ -21,7 +20,7 @@
   <meta property="og:url" content="https://jeancarloshs.github.io/provisionamento/">
   <meta property="og:title" content="">
   <meta property="og:image" content="https://jeancarloshs.github.io/provisionamento/img/naxos_telecom_logo.png">
-  <meta property="og:description" content="ágina voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
+  <meta property="og:description" content="Página voltada para a Empresa Naxos Telecom, para estar realizando ativações de clientes na rede FTTH na OLT Nokia utilizando ONU/ONT">
 
   <meta property="article:author" content="Jean Carlos">
   <!-- final meta tags seo -->
@@ -31,9 +30,10 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/tabela.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="./js/validation.js"></script>
-  
 </head>
 <body>
 
@@ -45,42 +45,32 @@
       <nav class="grid-12 header_menu">
         <ul>
           <li><a href="ajuda.html">Ajuda</a></li>
+          <li><a href="opcoes.html">Opções</a></li>
           <li><a href="bridge.html">Bridge</a></li>
           <li><a href="telefonia.html">Telefonia</a></li>
         </ul>
       </nav>
     </div>
-  </header> <!-- header -->
+  </header>
 
-  <div class="container infoPDF">
-    <ul>
-      <li>
-        <a href="cadastro.html">
-          <p>Cadastrar Usuarios</p>
-        </a>
-      </li>
-      <li>
-        <a href="tabela.html">
-          <p>Usuarios</p>
-        </a>
-      </li>
-  </div>
+  <section class="container tabela">
+    <table>
+      <tr class="titulo">
+          <td>Nome Funcionario</td>
+          <td>Cargo Funcionario</td>
+          <td>Permissão do Colaborador</td>
+      </tr>
+    </table>
+
+  
+  </section>
 
 
-<footer>
-  <div class="footer">
-    <div class="container">
-      <div class="copy">
-        <p class="grid-12">Naxos Telecom 2022 - Alguns direitos reservados.</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="./js/Cadastro/Cadastro.js"></script>
+<script src="./js/function.js"></script>
 <script src="./js/addElement.js"></script>
-<script src="https://unpkg.com/@supabase/supabase-js"></script>
-<script src="./js/app.js"></script>
+<script type="module" src="./js/app.js"></script>
+<script type="module" src="./js/listaUsuarios/Lista.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js" type="module"></script>
 
 </body>
 </html>

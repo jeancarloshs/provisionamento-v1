@@ -1,0 +1,36 @@
+table, tr, td {
+    padding: 5px 5px;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    text-align: center;
+    color: white;
+}
+
+tr:hover {
+    background-color: #4C6FFD !important;
+}
+
+/* td {
+    border: 1px solid;
+} */
+
+.titulo {
+    text-align: center;
+    font-weight: bold;
+    height: 50px;
+    color: white;
+    background-color: #00197D;
+}
+
+.info {
+    background-color: #25377D;
+}
+
+.info2 {
+    background-color: rgb(117, 172, 209) !important;
+}
