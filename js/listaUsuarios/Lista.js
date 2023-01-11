@@ -31,38 +31,32 @@ let verificaUsuario = (async () => {
             <td>${nomeUsuario}</td>
             <td>${cargo}</td>
             <td>${permissaoDoColaborador}</td>
-            <td><button class="btnEditar" onclick="console.log('clicou em editar')"></button></td>
+            <td><button class="btnEditar"></button></td>
         </tr>`
-
-
     })
 
     let info = document.querySelectorAll('.info')
-
     info.forEach((item) => {
       const index = item.getAttribute('indice')
       if(index % 2 === 0) {
-        console.log(index)
+        //console.log(index)
         item.classList.add('info2')
       } 
     })
+
+    let btnEditar = document.querySelectorAll('.btnEditar')
+  
+    //console.log(btnEditar)
+    btnEditar.forEach((element, index) => {
+      element.addEventListener('click', () => {
+
+        console.log('clicou', index)
         
-
-
-    newArray = arrayDataJson
-    //console.log('new array',newArray)
-    
-    //const jsonData = await response.json()
-    //console.log('return: ',jsonData)
-    //console.log('header: ',headersList)
-    // console.log('Status Response:')
-    // console.log('Response OK:',response.ok)
-    // console.log('Response Status:',response.status)
-
+      })
+    })
   } catch (error) {
     //console.log('error: ',error)
     }
-
 
 })
 ();
