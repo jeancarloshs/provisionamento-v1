@@ -48,25 +48,25 @@ let verificaUsuario = (async () => {
   
     //console.log(btnEditar)
     btnEditar.forEach((element, index) => {
+      const openModalButton = element
+      const closeModalButton = document.querySelector("#close-modal");
+      const modal = document.querySelector("#modal");
+      const fade = document.querySelector("#fade");
       element.addEventListener('click', () => {
-
-        const openModalButton = element
-        const closeModalButton = document.querySelector("#close-modal");
-        const modal = document.querySelector("#modal");
-        const fade = document.querySelector("#fade");
-
-        const toggleModal = () => {
-          modal.classList.toggle("hide");
-          fade.classList.toggle("hide");
-        };
-
-        [openModalButton, closeModalButton, fade].forEach((el) => {
-          el.addEventListener("click", () => toggleModal());
-        });
-
-        console.log('clicou', index)
+      
+        toggleModal
+        //console.log('clicou', index)
         
       })
+
+      const toggleModal = () => {
+        modal.classList.toggle("hide");
+        fade.classList.toggle("hide");
+      };
+      [openModalButton, closeModalButton, fade].forEach((el) => {
+        el.addEventListener("click", () => toggleModal());
+      });
+      
     })
   } catch (error) {
     //console.log('error: ',error)

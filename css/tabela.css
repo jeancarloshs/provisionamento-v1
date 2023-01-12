@@ -31,7 +31,7 @@ tr:hover {
     background-color: rgba(115, 168, 204, 0.5) !important;
 }
 
-button {
+.btnEditar {
     padding: 0 !important;
     margin: 2px auto !important;
     background-image: url('../img/manutencao.png');
