@@ -18,14 +18,25 @@
 
      let arrayDataJson = dataJson
 
-     
+     arrayDataJson.sort((a, b) => {
+      if(a.nomeFuncionario > b.nomeFuncionario) {
+          return 1;
+      } else if(a.nomeFuncionario < b.nomeFuncionario) {
+          return -1;
+      } else {
+          return 0;
+      }
+      });
+
+    //console.log(arrayDataJson)
+
       arrayDataJson.forEach((element, index) => {
         let nomeUsuario = element.nomeFuncionario;
         let cargo = element.cargoFuncionario;
         let permissaoDoColaborador = element.permissaoDoColaborador;
 
         let tabela = document.querySelector('table');
-    
+
         tabela.innerHTML += `
         <tr indice=${index} class='info'>
             <td>${nomeUsuario}</td>
