@@ -1,4 +1,4 @@
-let verificaUsuario = (async () => {
+(async () => {
   try {
     let headersList = {
       "Accept": "*/*",
@@ -56,14 +56,6 @@ let verificaUsuario = (async () => {
       
         toggleModal
         //console.log('clicou', index)
-        let conteudoModal = document.querySelector('.modal-body')
-        conteudoModal.innerHTML += `
-        <p>
-          TESTE
-        </p>
-        <p>${nomeUsuario}</p>
-        <p>${cargo}</p>
-        <p>${permissaoDoColaborador}</p>`  
       })
 
       const toggleModal = () => {
@@ -74,6 +66,11 @@ let verificaUsuario = (async () => {
         el.addEventListener("click", () => toggleModal());
       });
     })
+    let conteudoModal = document.querySelector('.modal-body')
+    conteudoModal.innerHTML += `
+    <p>
+      TESTE
+    </p>`
   } catch (error) {
     //console.log('error: ',error)
     }
