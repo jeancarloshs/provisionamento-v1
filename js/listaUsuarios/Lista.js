@@ -7,14 +7,14 @@
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g"
      }
      
-     let response = await fetch("https://hbnnejxzvuzwlmtekpos.supabase.co/rest/v1/tbUsuarios?select=nomeFuncionario,cargoFuncionario,admin,permissaoDoColaborador", { 
+     let response = await fetch("https://hbnnejxzvuzwlmtekpos.supabase.co/rest/v1/tbUsuarios", { 
        method: "GET",
        headers: headersList,
      });
      
      let data = await response.json();
      let dataJson = data
-     //console.log(dataJson);
+     console.log(dataJson);
 
      let arrayDataJson = dataJson
 
@@ -64,7 +64,7 @@
       const modal = document.querySelector("#modal");
       const fade = document.querySelector("#fade");
       element.addEventListener('click', () => {
-      
+        
         toggleModal
         //console.log('clicou', index)
       })
@@ -78,13 +78,36 @@
       });
     })
     let conteudoModal = document.querySelector('.modal-body')
+    for (let i = 0; i <= arrayDataJson.length; i++) {
+
+    }
     conteudoModal.innerHTML += `
-    <p>
-      TESTE
-    </p>`
+    <form id="formInformacoes" method="POST" class="formFormulario formValidation">
+
+      <label for="nomeFuncionario"></label>
+      <input type="text" id="nomeFuncionario" name="nomeFuncionario" placeholder="Nome Funcionario" data-rules="required|min=3" value="${arrayDataJson[0].nomeFuncionario}">
+
+      <label for="cargoFuncionario"></label>
+      <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Cargo Funcionario" data-rules="required" value="${arrayDataJson[0].cargoFuncionario}">
+
+      <label for="permissaoDoColaborador" class="selectLabel"></label>
+      <select name="permissaoDoColaborador" id="permissaoDoColaborador" class="grid-3 suporte select" data-rules="required">
+        <option value="" select>Permissão do Colaborador</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Usuario">Usuario</option>
+      </select>
+      
+      <label for="emailFuncionario"></label>
+      <input type="text" name="emailFuncionario" id="emailFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[0].emailFuncionario}">
+
+      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Salvar</button>
+      <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Resetar</button>
+
+    </form>`
+
   } catch (error) {
     //console.log('error: ',error)
-    }
+    } 
 
 })
 ();
