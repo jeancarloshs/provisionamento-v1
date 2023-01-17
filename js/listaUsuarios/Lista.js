@@ -100,8 +100,9 @@
       <label for="emailFuncionario"></label>
       <input type="text" name="emailFuncionario" id="emailFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[0].emailFuncionario}">
 
-      <button type="submit" id="btnProvisionar" name="btnProvisionar" class="btn btnProvisionar" onclick="check(event)">Salvar</button>
-      <button type="submit" id="btnLimpaInputs" name="btnLimpaInputs" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Resetar</button>
+      <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btnSalvar" onclick="check(event)">Salvar</button>
+      <button type="submit" id="btnDeletar" name="btnDeletar" class="btn btnDeletar" onclick="check(event)">Deletar</button>
+      <button type="submit" id="btnResetaForm" name="btnResetaForm" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Resetar</button>
 
     </form>`
 
