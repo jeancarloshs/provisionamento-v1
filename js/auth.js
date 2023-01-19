@@ -105,12 +105,12 @@ const token = localStorage.setItem('TokenAuthentication', geraToken);
             if (userAdmin == true) {
               let isAdmin = localStorage.setItem('isAdmin', userAdmin);
               isAdmin
-              window.location.assign('provisionamento.html');
+              window.location.assign('../pages/provisionamento.html');
               //console.log('admin', userAdmin)
             } else {
               let isAdmin = localStorage.setItem('isAdmin', userAdmin);
               isAdmin
-              window.location.assign('provisionamento.html');
+              window.location.assign('../pages/provisionamento.html');
             }
           //console.log('userAdmin', userAdmin)          
           return
