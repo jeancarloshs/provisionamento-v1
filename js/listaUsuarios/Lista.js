@@ -17,6 +17,7 @@
      //console.log(dataJson);
 
      let arrayDataJson = dataJson
+     //console.log(arrayDataJson);
 
      arrayDataJson.sort((a, b) => {
       if(a.nomeFuncionario > b.nomeFuncionario) {
@@ -63,14 +64,16 @@
       const closeModalButton = document.querySelector("#close-modal");
       const modal = document.querySelector("#modal");
       const fade = document.querySelector("#fade");
+      
       element.addEventListener('click', () => {
         
         toggleModal
-
+        
         if (arrayDataJson !== arrayDataJson[index].nomeFuncionario) {
         console.log('clicou', arrayDataJson[index].nomeFuncionario)
+
         let conteudoModal = document.querySelector('.modal-body')
-        
+
         conteudoModal.innerHTML += `
         <form id="formInformacoes" method="POST" class="formFormulario formValidation formUsuarios">
     
@@ -98,7 +101,7 @@
           <!--<button type="submit" id="btnResetaForm" name="btnResetaForm" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Resetar</button>-->
         </form>`
       }
-      })
+      })      
 
       const toggleModal = () => {
         modal.classList.toggle("hide");
@@ -118,10 +121,10 @@
     //console.log('error: ',error)
     } 
 
-    function apagaForm() {  
-      document.getElementById('btnResetaForm').reset();
-      document.getElementById('formInformacoes').value = "";
-    };// FINAL function apagaForm
+    function elementoRemovido(){
+      let modalRemovida = document.querySelector('#modal')
+      modal.removeChild(modalRemovida)
+    }
 
 })
 ();
