@@ -74,7 +74,7 @@
 
         let conteudoModal = document.querySelector('.modal-body')
 
-        conteudoModal.innerHTML += `
+        conteudoModal.innerHTML = `
         <form id="formInformacoes" method="POST" class="formFormulario formValidation formUsuarios">
     
           <label for="nomeFuncionario"></label>
