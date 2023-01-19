@@ -12,7 +12,7 @@ if(verificaAdmin !== 'false') {
 function btnSair(event) {
   localStorage.removeItem("TokenAuthentication");
   localStorage.removeItem('isAdmin');
-  window.location.assign('index.html')
+  window.location.assign('../index.html')
 }
 
 (()=>{
