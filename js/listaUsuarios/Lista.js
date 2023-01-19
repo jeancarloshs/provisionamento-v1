@@ -94,7 +94,7 @@
           <input type="text" name="emailFuncionario" id="emailFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[index].emailFuncionario}">
     
           <label for="senhaFuncionario"></label>
-          <input type="password" name="senhaFuncionario" id="senhaFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[index].senhaFuncionario}">
+          <input type="password" name="senhaFuncionario" id="senhaFuncionario" placeholder="Senha" data-rules="required" value="${arrayDataJson[index].senhaFuncionario}">
     
           <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btnSalvar" onclick="console.log("Salvar")">Salvar</button>
           <button type="submit" id="btnDeletar" name="btnDeletar" class="btn btnDeletar" onclick="console.log("Deletar")">Deletar</button>
