@@ -67,44 +67,42 @@
       
       element.addEventListener('click', () => {
         
-        toggleModal
-        
         if (arrayDataJson !== arrayDataJson[index].nomeFuncionario) {
         console.log('clicou', arrayDataJson[index].nomeFuncionario)
 
-        let conteudoModal = document.querySelector('.modal-body')
+          let conteudoModal = document.querySelector('.modal-body')
 
-        conteudoModal.innerHTML = `
-        <form id="formInformacoes" method="POST" class="formFormulario formValidation formUsuarios">
-    
-          <label for="nomeFuncionario"></label>
-          <input type="text" id="nomeFuncionario" name="nomeFuncionario" placeholder="Nome Funcionario" data-rules="required|min=3" value="${arrayDataJson[index].nomeFuncionario}">
+          conteudoModal.innerHTML = `
+          <form id="formInformacoes" method="POST" class="formFormulario formValidation formUsuarios">
+      
+            <label for="nomeFuncionario"></label>
+            <input type="text" id="nomeFuncionario" name="nomeFuncionario" placeholder="Nome Funcionario" data-rules="required|min=3" value="${arrayDataJson[index].nomeFuncionario}">
 
-          <label for="tipoDeCargo" class="selectLabel"></label>
-          <select name="tipoDeCargo" id="tipoDeCargo" class="grid-3 tipoDeCargo select selectPermissao" data-rules="required">
-            <option value="" select>Cargo</option>
-            <option value="Instalador">Instalador</option>
-            <option value="Suporte">Suporte</option>
-          </select>
-    
-          <label for="permissaoDoColaborador" class="selectLabel"></label>
-          <select name="permissaoDoColaborador" id="permissaoDoColaborador" class="grid-3 suporte select selectPermissao" data-rules="required">
-            <option value="" select>Permissão do Colaborador</option>
-            <option value="Administrador">Administrador</option>
-            <option value="Usuario">Usuario</option>
-          </select>
-    
-          <label for="emailFuncionario"></label>
-          <input type="text" name="emailFuncionario" id="emailFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[index].emailFuncionario}">
-    
-          <label for="senhaFuncionario"></label>
-          <input type="password" name="senhaFuncionario" id="senhaFuncionario" placeholder="Senha" data-rules="required" value="${arrayDataJson[index].senhaFuncionario}">
-    
-          <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btnSalvar" onclick="console.log("Salvar")">Salvar</button>
-          <button type="submit" id="btnDeletar" name="btnDeletar" class="btn btnDeletar" onclick="console.log("Deletar")">Deletar</button>
-          <!--<button type="submit" id="btnResetaForm" name="btnResetaForm" class="btn BtnCopiar btnAcoes" onclick="apagaForm()">Resetar</button>-->
-        </form>`
-      }
+            <label for="tipoDeCargo" class="selectLabel"></label>
+            <select name="tipoDeCargo" id="tipoDeCargo" class="grid-3 tipoDeCargo select selectPermissao" data-rules="required">
+              <option value="" select>Cargo</option>
+              <option value="Instalador">Instalador</option>
+              <option value="Suporte">Suporte</option>
+            </select>
+      
+            <label for="permissaoDoColaborador" class="selectLabel"></label>
+            <select name="permissaoDoColaborador" id="permissaoDoColaborador" class="grid-3 suporte select selectPermissao" data-rules="required">
+              <option value="" select>Permissão do Colaborador</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Usuario">Usuario</option>
+            </select>
+      
+            <label for="emailFuncionario"></label>
+            <input type="text" name="emailFuncionario" id="emailFuncionario" placeholder="Email" data-rules="required" value="${arrayDataJson[index].emailFuncionario}">
+      
+            <label for="senhaFuncionario"></label>
+            <input type="password" name="senhaFuncionario" id="senhaFuncionario" placeholder="Senha" data-rules="required" value="${arrayDataJson[index].senhaFuncionario}">
+      
+            <button type="submit" id="btnSalvar" name="btnSalvar" class="btn btnSalvar">Salvar</button>
+            <button type="submit" id="btnDeletar" name="btnDeletar" class="btn btnDeletar">Deletar</button>
+            <!--<button type="submit" id="btnResetaForm" name="btnResetaForm" class="btn BtnCopiar btnAcoes">Resetar</button>-->
+          </form>`
+       }
       })      
 
       const toggleModal = () => {
@@ -114,13 +112,9 @@
       [openModalButton, closeModalButton, fade].forEach((el) => {
         el.addEventListener("click", () => toggleModal());
       });
+
     })
     
-    for (let i = 0; i <= arrayDataJson.length; i++) {
-      //console.log(arrayDataJson[i])
-    }
-
-
   } catch (error) {
     //console.log('error: ',error)
     } 
