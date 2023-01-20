@@ -57,8 +57,8 @@
     })
 
     let btnEditar = document.querySelectorAll('.btnEditar')
-  
     //console.log(btnEditar)
+
     btnEditar.forEach((element, index) => {
       const openModalButton = element
       const closeModalButton = document.querySelector("#close-modal");
@@ -79,15 +79,19 @@
     
           <label for="nomeFuncionario"></label>
           <input type="text" id="nomeFuncionario" name="nomeFuncionario" placeholder="Nome Funcionario" data-rules="required|min=3" value="${arrayDataJson[index].nomeFuncionario}">
-    
-          <label for="cargoFuncionario"></label>
-          <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Cargo Funcionario" data-rules="required" value="${arrayDataJson[index].cargoFuncionario}">
+
+          <label for="tipoDeCargo" class="selectLabel"></label>
+          <select name="tipoDeCargo" id="tipoDeCargo" class="grid-3 tipoDeCargo select selectPermissao" data-rules="required">
+            <option value="" select>Cargo</option>
+            <option value="Instalador">Instalador</option>
+            <option value="Suporte">Suporte</option>
+          </select>
     
           <label for="permissaoDoColaborador" class="selectLabel"></label>
           <select name="permissaoDoColaborador" id="permissaoDoColaborador" class="grid-3 suporte select selectPermissao" data-rules="required">
-          <option value="" select>Permissão do Colaborador</option>
-          <option value="Administrador">Administrador</option>
-          <option value="Usuario">Usuario</option>
+            <option value="" select>Permissão do Colaborador</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Usuario">Usuario</option>
           </select>
     
           <label for="emailFuncionario"></label>
@@ -120,11 +124,6 @@
   } catch (error) {
     //console.log('error: ',error)
     } 
-
-    function elementoRemovido(){
-      let modalRemovida = document.querySelector('#modal')
-      modal.removeChild(modalRemovida)
-    }
 
 })
 ();
