@@ -1,8 +1,9 @@
+let result;
 function salvaDB() {
     const nome = document.getElementById('name').value;
     const cargo = document.getElementById('tipoDeCargo').value;
-    const cargoAdmin = document.getElementById('permissaoDeADMIN').value
-    const booleanCargoAdmin = cargoAdmin != 0
+    const cargoAdmin = document.getElementById('permissaoDeADMIN').value;
+    //const booleanCargoAdmin = cargoAdmin != 0
     //const tipoDePermissao = document.getElementById('permissaoDeADMIN').value;
     //const grupoDoColaborador = booleanCargoAdmin = 0 == "Usuario";
     // const booleanGrupoDoColaborador = grupoDoColaborador != 0 
@@ -21,8 +22,8 @@ function salvaDB() {
                 { 
                   nomeFuncionario: nome,
                   cargoFuncionario: cargo,
-                  admin: booleanCargoAdmin,
-                  //permissaoDoColaborador: grupoDoColaborador,
+                  admin: result,
+                  permissaoDoColaborador: cargoAdmin,
                   emailFuncionario: email,
                   senhaFuncionario: senha,
                   created_at: ((new Date()).toISOString()).toLocaleString('br-SP', { hour12: false })
@@ -37,33 +38,32 @@ function salvaDB() {
               } 
           
               console.log("data:", data)
+              console.log(`Usuario Cadastrado!!!`)
            }
           
             main();
 
 };// FINAL function salvaDB
 
-function salvaCadastro(){
-    const nome = document.getElementById('name').value;
-    const cargoAdmin = document.getElementById('permissaoDeADMIN').value
-    const booleanCargoAdmin = cargoAdmin != 0
-    if (cargoAdmin == "") {
-      //console.log(`Return Responde: \nCargo Admin Não Foi Preenchido ${cargoAdmin}`)
-      alert('Escolha um tipo de Permissão')
-    } else if (cargoAdmin == 1) {
-      //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
-      salvaDB();
-      alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
-      return cargoAdmin
-    } else {
-      //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
-      salvaDB();
-      alert(`Usuario ${nome} cadastrado com Sucesso!!!`)
-      return booleanCargoAdmin
-    }
-    alert("Usuario Cadastrado com Sucesso!!!")
-    //console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nBoleano Cargo Admin: ${booleanCargoAdmin}`)
+function salvaCadastro() {
+  const nome = document.getElementById('name').value;
+  const cargoAdmin = document.getElementById('permissaoDeADMIN').value;
+  
+  if (cargoAdmin == "") {
+      alert('Escolha um tipo de Permissão');
+  } else {
+      if (cargoAdmin == "Administrador") {
+          result = true;
+      } else {
+          result = false;
+      }
+      console.log(`Return Responde: \nCargo Admin: ${cargoAdmin} \nPermissão Administrador: ${result}`);
+      alert(`Usuario ${nome} cadastrado com Sucesso!!!`);
+  }
+  salvaDB()
+  return result;
 }
+
 
 function apagaForm() {  
 	document.getElementById('formFormulario').reset();
