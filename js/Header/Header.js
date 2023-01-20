@@ -7,13 +7,13 @@ class Header extends HTMLElement {
       <header class="header">
       <div class="container">
         <a href="provisionamento.html" class="grid-4">
-          <img src="./img/naxos_telecom_logo.png" alt="Naxos Telecom" />
+          <img src="../img/naxos_telecom_logo.png" alt="Naxos Telecom" />
         </a>
         <nav class="grid-12 header_menu">
           <ul>
-            <li><a href="ajuda.html">Ajuda</a></li>
-            <li><a href="bridge.html">Bridge</a></li>
-            <li><a href="telefonia.html">Telefonia</a></li>
+            <li><a href="../ajuda.html">Ajuda</a></li>
+            <li><a href="../bridge.html">Bridge</a></li>
+            <li><a href="../telefonia.html">Telefonia</a></li>
           </ul>
         </nav>
       </div>

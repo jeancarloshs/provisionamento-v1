@@ -1,4 +1,4 @@
-export let verificaUsuario = (async () => {
+(async () => {
   try {
     let headersList = {
       "Accept": "*/*",
