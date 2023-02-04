@@ -1,5 +1,4 @@
 # Provisionamento
-
 Desenvolvi esse sistema afim de facilitar o meu trabalho na empresa, para realizar Provisionamento, Remoção, Configuração de ONT Bridge e ONT com linha telefonica na OLT Nokia. Decidi criar esse sistema pois essa OLT não possui integração com nenhum outro sistema ou ERP para realizar esse tipo de serviço, sendo assim o trabalho era 100% manual e precisava inserir linha por linha no console SSH para fazer uma ativação de cliente.
 
 
