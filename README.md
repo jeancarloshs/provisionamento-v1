@@ -21,7 +21,7 @@ Desenvolvi esse sistema afim de facilitar o meu trabalho na empresa, para realiz
 
 ## Screenshots
 
-![Login](./tree/master/img/prints_App/screenshot-1675548030188.jpeg)
+![Login](https://via.placeholder.com/468x300?text=tree/master/img/prints_App/screenshot-1675548030188.jpeg)
 
 ![Formulario de provisionamento](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
