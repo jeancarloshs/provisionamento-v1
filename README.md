@@ -29,8 +29,6 @@ Desenvolvi esse sistema afim de facilitar o meu trabalho na empresa, para realiz
 ### Controle de Usuarios
 ![Controle de usuarios](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/screenshot-1675548075808.jpeg)
 
-### Edição de Usuario
-![Edição de Usuario](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/print-edicao-de-usuario.jpeg)
 ## Usado por
 
 Esse projeto é usado pelas seguintes empresas:
