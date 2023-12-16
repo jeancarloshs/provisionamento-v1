@@ -8,7 +8,7 @@ function fazLogin(){
   
     const { createClient } = supabase;
   
-    const _supabase = createClient ('https://hbnnejxzvuzwlmtekpos.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhibm5lanh6dnV6d2xtdGVrcG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTA1MDY3MzksImV4cCI6MTk2NjA4MjczOX0.cSPYBGyNvEl_nq69kx3aFfjxWJIqQ-Fdm3EVNPzEA_g');
+    const _supabase = createClient ('https://---.supabase.co', '---');
     
     const dadosUsuario = async () => {
       let { data: tbUsuarios, error } = await _supabase
