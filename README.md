@@ -21,16 +21,16 @@ Desenvolvi esse sistema afim de facilitar o meu trabalho na empresa, para realiz
 
 ## Screenshots
 ### Login
-![Login](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/print-login.jpeg)
+![Login](https://github.com/jeancarloshs/provisionamento-v1/blob/master/img/prints_App/print-login.jpeg)
 
 ### Formulario de Provisionamento
-![Formulario de provisionamento](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/print-provisionamento.jpeg)
+![Formulario de provisionamento](https://github.com/jeancarloshs/provisionamento-v1/blob/master/img/prints_App/print-provisionamento.jpeg)
 
 ### Controle de Usuarios
-![Controle de usuarios](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/print-controle-de-usuarios.jpeg)
+![Controle de usuarios](https://github.com/jeancarloshs/provisionamento-v1/blob/master/img/prints_App/print-controle-de-usuarios.jpeg)
 
 ### Edição de Usuario
-![Edição de Usuario](https://github.com/jeancarloshs/provisionamento/blob/master/img/prints_App/print-edicao-de-usuario.jpeg)
+![Edição de Usuario](https://github.com/jeancarloshs/provisionamento-v1/blob/master/img/prints_App/print-edicao-de-usuario.jpeg)
 ## Usado por
 
 Esse projeto é usado pelas seguintes empresas:
