@@ -1,7 +1,7 @@
 var axios = require("axios");
 
 function salvar(nome, tecnicoExterno, serialNumber, posicionamentoOLT, patrimonio, tipoDeServico, tecnicoInterno){
-    axios.post('https://sheetdb.io/api/v1/f8t5fv0yuh1xs',{
+    axios.post('https://---.io/api/v1/---',{
         "data": {
             "CLIENTES": nome,
             "TÉCNICO 1": tecnicoExterno,
